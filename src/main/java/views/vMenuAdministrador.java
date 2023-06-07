@@ -17,6 +17,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
      * Creates new form vMenuAdministrador
      */
     CListas listas = null;
+
     public vMenuAdministrador(CListas listas) {
         initComponents();
         this.listas = listas;
@@ -100,7 +101,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-       // Crear Producto
+    // Crear Producto
     private void miUserCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserCrearActionPerformed
         // TODO add your handling code here:
         new VCreateUser(listas).setVisible(true);
@@ -114,11 +115,59 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
     private void miUserEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserEliminarActionPerformed
         // TODO add your handling code here:
-        String name = JOptionPane.showInputDialog("Ingresa el ID del Usuario");
-        
-        
+        int bdID = 0;
+        String ID = JOptionPane.showInputDialog("Ingresa el ID del Usuario");
+
+        switch (ID.substring(0, 1)) {
+            case "1" -> {
+                bdID = listas.BuscarIdAdministrador(Integer.parseInt(ID));
+                if(bdID == -1){
+                    showMessageDialogFail(ID);
+                }else{
+                    listas.removeAdministrador(bdID);
+                    showMessageDialogSuccess();
+                }
+            }
+            case "2" -> {
+                bdID = listas.BuscarIdBartender(Integer.parseInt(ID));
+                if(bdID == -1){
+                    showMessageDialogFail(ID);
+                }else{
+                    listas.removeBartender(bdID);
+                    showMessageDialogSuccess();
+                }
+            }
+            case "3" -> {
+                bdID = listas.BuscarIdMesero(Integer.parseInt(ID));
+                if(bdID == -1){
+                    showMessageDialogFail(ID);
+                }else{
+                    listas.removeMesero(bdID);
+                    showMessageDialogSuccess();
+                }
+            }
+            case "4" -> {
+                bdID = listas.BuscarIdCocinero(Integer.parseInt(ID));
+                if(bdID == -1){
+                    showMessageDialogFail(ID);
+                }else{
+                    listas.removeCocinero(bdID);
+                    showMessageDialogSuccess();
+                }
+            }
+            default -> {
+            }
+        }
     }//GEN-LAST:event_miUserEliminarActionPerformed
 
+    private void showMessageDialogSuccess(){
+        JOptionPane.showMessageDialog(this, "El Usuario ha sido eliminado correctamente", "Eliminar Usuario", 1);
+    }
+    
+    private void showMessageDialogFail(String ID){
+        JOptionPane.showMessageDialog(this, "No se encontró Usuario con el ID: " + ID, "Eliminar Usuario", 1);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

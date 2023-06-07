@@ -29,23 +29,23 @@ public class CListas {
 
     public void createUsers() {
         for (int i = 0; i < 1; i++) {
-            administradorList.add(new CAdministrador("administrador1", "administrador1",i));
+            administradorList.add(new CAdministrador("administrador1", "administrador1", i));
         }
     }
-    
-    public int createIdAdministrador(){
+
+    public int createIdAdministrador() {
         return administradorList.get(administradorList.size() - 1).getiID() + 1;
     }
-    
-    public int createIdCocinero(){
+
+    public int createIdCocinero() {
         return cocineroList.get(cocineroList.size() - 1).getiID() + 1;
     }
-    
-    public int createIdBartender(){
+
+    public int createIdBartender() {
         return bartenderList.get(bartenderList.size() - 1).getiID() + 1;
     }
-    
-    public int createIdMesero(){
+
+    public int createIdMesero() {
         return meseroList.get(meseroList.size() - 1).getiID() + 1;
     }
 
@@ -94,7 +94,75 @@ public class CListas {
 
     public void crearAdministrador(CAdministrador administrador) {
         administradorList.add(administrador);
-
     }
 
+    public int BuscarIdAdministrador(int ID) {
+        int Index = 0;
+
+        if (administradorList.isEmpty()) return -1;
+
+        for (CAdministrador usuario : administradorList) {
+            if (usuario.getiID() == ID) {
+                return Index;
+            }
+            Index++;
+        }
+        return -1;
+    }
+
+    public int BuscarIdBartender(int ID) {
+        int Index = 0;
+        if (bartenderList.isEmpty()) {
+            return -1;
+        }
+
+        for (CBartender usuario : bartenderList) {
+            if (usuario.getiID() == ID) {
+                return Index;
+            }
+            Index++;
+        }
+        return -1;
+    }
+
+    public int BuscarIdMesero(int ID) {
+        int Index = 0;
+        
+        if (meseroList.isEmpty()) return -1;
+        for (CMesero usuario : meseroList) {
+            if (usuario.getiID() == ID) {
+                return Index;
+            }
+            Index++;
+        }
+        return -1;
+    }
+
+    public int BuscarIdCocinero(int ID) {
+        int Index = 0;
+        if (cocineroList.isEmpty()) return -1; 
+        for (CCocinero usuario : cocineroList) {
+            if (usuario.getiID() == ID) {
+                return Index;
+            }
+            Index++;
+        }
+        return -1;
+    }
+
+    public void removeAdministrador(int index) {
+        administradorList.remove(index);
+    }
+
+    public void removeBartender(int index) {
+        bartenderList.remove(index);
+    }
+
+    public void removeMesero(int index) {
+        meseroList.remove(index);
+    }
+
+    public void removeCocinero(int index) {
+        cocineroList.remove(index);
+    }
 }

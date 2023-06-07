@@ -9,6 +9,7 @@ import entities.CAdministrador;
 import entities.CBartender;
 import entities.CCocinero;
 import entities.CMesero;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -165,39 +166,37 @@ public class VCreateUser extends javax.swing.JFrame {
         name = tfName.getText();
         pass = tfPass.getText();
 
+        if (rbAdministrador.isSelected()) {
+            ID = (listas.administradorList.isEmpty()) ? 100 : listas.createIdAdministrador();
+            listas.crearAdministrador(new CAdministrador(name, pass, ID));
+        } else if (rbBarMan.isSelected()) {
+            ID = (listas.bartenderList.isEmpty()) ? 200 : listas.createIdBartender();
+            listas.crearBartender(new CBartender(name, pass, ID));
+        } else if (rbMesero.isSelected()) {
+            ID = (listas.meseroList.isEmpty()) ? 300 : listas.createIdMesero();
+            System.out.println("" + ID);
+            listas.crearMesero(new CMesero(name, pass, ID));
+        } else if (rbCocinero.isSelected()) {
+            ID = (listas.cocineroList.isEmpty()) ? 400 : listas.createIdCocinero();
+            listas.crearCocinero(new CCocinero(name, pass, ID));
+        }
+
+        JOptionPane.showMessageDialog(this, "Tu ID es el: " + ID, "Usuario Creado", 1);
+
         clearForm();
 
-        if (rbAdministrador.isSelected()) {
-            ID = (listas.administradorList.get(0) == null) ? 100 : listas.createIdAdministrador();
-            listas.crearAdministrador(new CAdministrador(name, pass, ID));
-            return;
-        }
-        
-        if (rbBarMan.isSelected()) {
-            ID = (listas.bartenderList.get(0) == null) ? 200 : listas.createIdBartender();
-            listas.crearBartender(new CBartender(name, pass, ID));
-            return;
-        }
-        if (rbMesero.isSelected()) {
-            ID = (listas.meseroList.get(0) == null) ? 300 : listas.createIdMesero();
-            listas.crearMesero(new CMesero(name, pass,ID));
-            return;
-        }
 
-        if (rbCocinero.isSelected()) {
-            ID = (listas.cocineroList.get(0) == null) ? 400 : listas.createIdCocinero();
-            listas.crearCocinero(new CCocinero(name, pass,ID));
-        }
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        new VLogin(listas).setVisible(true);
+        new vMenuAdministrador(listas).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     public void clearForm() {
         tfName.setText("");
         tfPass.setText("");
+        rbAdministrador.setSelected(true);
     }
     /**
      * @param args the command line arguments
