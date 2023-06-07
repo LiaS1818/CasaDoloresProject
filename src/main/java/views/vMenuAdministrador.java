@@ -81,6 +81,11 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         jMenu2.add(miProBuscar);
 
         miProEliminar.setText("Eliminar");
+        miProEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miProEliminarActionPerformed(evt);
+            }
+        });
         jMenu2.add(miProEliminar);
 
         jMenuBar1.add(jMenu2);
@@ -125,7 +130,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogFail(ID);
                 }else{
                     listas.removeAdministrador(bdID);
-                    showMessageDialogSuccess();
+                    showMessageDialogSuccess("Usuario");
                 }
             }
             case "2" -> {
@@ -134,7 +139,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogFail(ID);
                 }else{
                     listas.removeBartender(bdID);
-                    showMessageDialogSuccess();
+                    showMessageDialogSuccess("Usuario");
                 }
             }
             case "3" -> {
@@ -143,7 +148,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogFail(ID);
                 }else{
                     listas.removeMesero(bdID);
-                    showMessageDialogSuccess();
+                    showMessageDialogSuccess("Usuario");
                 }
             }
             case "4" -> {
@@ -152,7 +157,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogFail(ID);
                 }else{
                     listas.removeCocinero(bdID);
-                    showMessageDialogSuccess();
+                    showMessageDialogSuccess("Usuario");
                 }
             }
             default -> {
@@ -160,8 +165,31 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miUserEliminarActionPerformed
 
-    private void showMessageDialogSuccess(){
-        JOptionPane.showMessageDialog(this, "El Usuario ha sido eliminado correctamente", "Eliminar Usuario", 1);
+    private void miProEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProEliminarActionPerformed
+        // TODO add your handling code here:
+        int bdID = 0;
+        String name = JOptionPane.showInputDialog("Ingresa el Nombre del producto");
+        
+        int indexComida = listas.buscarComida(name);
+        int indexBebida = listas.buscarBebida(name);
+        
+        if(indexComida == -1 && indexBebida == -1){
+            JOptionPane.showMessageDialog(this, "No se encontró el Producto", "Eliminar Producto", 1);
+            return;
+        }
+        
+        if(indexComida != -1){
+            listas.removePlatillo(indexComida);
+            showMessageDialogSuccess("Comida");
+            return;
+        }
+        
+        listas.removeBebida(indexComida);
+        showMessageDialogSuccess("Bebida");
+    }//GEN-LAST:event_miProEliminarActionPerformed
+
+    private void showMessageDialogSuccess(String item){
+        JOptionPane.showMessageDialog(this, "Ha sido eliminado correctamente", "Eliminar " + item, 1);
     }
     
     private void showMessageDialogFail(String ID){

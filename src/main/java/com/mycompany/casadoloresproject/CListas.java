@@ -165,4 +165,40 @@ public class CListas {
     public void removeCocinero(int index) {
         cocineroList.remove(index);
     }
+    
+    public int buscarComida(String pComida){
+        int index = 0;
+        
+        if(platilloList.isEmpty()) return -1;
+        
+        for(CPlatillo comida : platilloList){
+            if(comida.getsNombre().equals(pComida))
+                return index;
+            index++;
+        }
+        
+        return -1;
+    }
+    
+    public int buscarBebida(String pBebida){
+        int index = 0;
+        
+        if(bebidaList.isEmpty()) return -1;
+        
+        for(CBebida comida : bebidaList){
+            if(comida.getsNombre().equals(pBebida))
+                return index;
+            index++;
+        }
+        
+        return -1;
+    }
+    
+    public void removePlatillo(int index){
+        platilloList.remove(index);
+    }
+    
+    public void removeBebida(int index){
+        bebidaList.remove(index);
+    }
 }
