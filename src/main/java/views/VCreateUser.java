@@ -20,6 +20,7 @@ public class VCreateUser extends javax.swing.JFrame {
      * Creates new form VCreateUser
      */
     CListas listas = null;
+
     public VCreateUser(CListas listas) {
         initComponents();
         this.listas = listas;
@@ -95,17 +96,19 @@ public class VCreateUser extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2))
+                                    .addComponent(jLabel3)
                                     .addGap(148, 148, 148))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(rbAdministrador)
                                     .addGap(107, 107, 107))
                                 .addComponent(rbMesero, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(58, 58, 58)
+                                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(rbBarMan))
-                        .addGap(125, 154, Short.MAX_VALUE))))
+                        .addGap(125, 159, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,10 +118,6 @@ public class VCreateUser extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(141, 141, 141)
@@ -161,40 +160,49 @@ public class VCreateUser extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         String name, pass;
-        
+        int ID = 0;
+
         name = tfName.getText();
         pass = tfPass.getText();
-        
-        if(rbAdministrador.isSelected()){
-            listas.crearAdministrador(new CAdministrador(name,pass));
-           
-        }else if (rbBarMan.isSelected()){
-            listas.crearBartender(new CBartender(name,pass));
-            
-        }else if (rbMesero.isSelected()){
-            listas.crearMesero(new CMesero(name, pass));
-            
-        }else if (rbCocinero.isSelected()){
-            listas.crearCocinero(new CCocinero(name, pass));
-            
+
+        clearForm();
+
+        if (rbAdministrador.isSelected()) {
+            ID = (listas.administradorList.get(0) == null) ? 100 : listas.createIdAdministrador();
+            listas.crearAdministrador(new CAdministrador(name, pass, ID));
+            return;
         }
         
-        clearForm();
+        if (rbBarMan.isSelected()) {
+            ID = (listas.bartenderList.get(0) == null) ? 200 : listas.createIdBartender();
+            listas.crearBartender(new CBartender(name, pass, ID));
+            return;
+        }
+        if (rbMesero.isSelected()) {
+            ID = (listas.meseroList.get(0) == null) ? 300 : listas.createIdMesero();
+            listas.crearMesero(new CMesero(name, pass,ID));
+            return;
+        }
+
+        if (rbCocinero.isSelected()) {
+            ID = (listas.cocineroList.get(0) == null) ? 400 : listas.createIdCocinero();
+            listas.crearCocinero(new CCocinero(name, pass,ID));
+        }
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         new VLogin(listas).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-    
-    public void clearForm(){
+
+    public void clearForm() {
         tfName.setText("");
         tfPass.setText("");
     }
     /**
      * @param args the command line arguments
      */
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

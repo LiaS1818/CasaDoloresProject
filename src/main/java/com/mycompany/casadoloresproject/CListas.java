@@ -29,9 +29,24 @@ public class CListas {
 
     public void createUsers() {
         for (int i = 0; i < 1; i++) {
-            administradorList.add(new CAdministrador("administrador1", "administrador1"));
-
+            administradorList.add(new CAdministrador("administrador1", "administrador1",i));
         }
+    }
+    
+    public int createIdAdministrador(){
+        return administradorList.get(administradorList.size() - 1).getiID() + 1;
+    }
+    
+    public int createIdCocinero(){
+        return cocineroList.get(cocineroList.size() - 1).getiID() + 1;
+    }
+    
+    public int createIdBartender(){
+        return bartenderList.get(bartenderList.size() - 1).getiID() + 1;
+    }
+    
+    public int createIdMesero(){
+        return meseroList.get(meseroList.size() - 1).getiID() + 1;
     }
 
     public void createProducts() {

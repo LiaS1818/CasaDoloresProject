@@ -9,9 +9,10 @@ package entities;
  * @author DELL
  */
 public class CMesero extends CUsuario{
-    
-    public CMesero(String sUsername, String sPassword) {
-        super(sUsername, sPassword);
+
+    public CMesero(String sUsername, String sPassword, int piID) {
+        super(sUsername, sPassword, piID);
     }
+    
     
 }

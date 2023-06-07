@@ -5,6 +5,7 @@
 package views;
 
 import com.mycompany.casadoloresproject.CListas;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +43,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Productos");
+        jMenu1.setText("Usuarios");
 
         miUserCrear.setText("Crear");
         miUserCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -56,11 +57,16 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         jMenu1.add(miUserBuscar);
 
         miUserEliminar.setText("Eliminar");
+        miUserEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miUserEliminarActionPerformed(evt);
+            }
+        });
         jMenu1.add(miUserEliminar);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Usuarios");
+        jMenu2.setText("Productos");
 
         miProCrear.setText("Crear");
         miProCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -97,14 +103,21 @@ public class vMenuAdministrador extends javax.swing.JFrame {
        // Crear Producto
     private void miUserCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserCrearActionPerformed
         // TODO add your handling code here:
-        new VCreateProduct(listas).setVisible(true);
+        new VCreateUser(listas).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_miUserCrearActionPerformed
 
     private void miProCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProCrearActionPerformed
-        new VCreateUser(listas).setVisible(true);
+        new VCreateProduct(listas).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_miProCrearActionPerformed
+
+    private void miUserEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserEliminarActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog("Ingresa el ID del Usuario");
+        
+        
+    }//GEN-LAST:event_miUserEliminarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;

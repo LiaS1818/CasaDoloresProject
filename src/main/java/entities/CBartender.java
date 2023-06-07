@@ -9,9 +9,9 @@ package entities;
  * @author DELL
  */
 public class CBartender  extends CUsuario {
-    
-    public CBartender(String sUsername, String sPassword) {
-        super(sUsername, sPassword);
+
+    public CBartender(String sUsername, String sPassword, int piID) {
+        super(sUsername, sPassword, piID);
     }
     
 }
