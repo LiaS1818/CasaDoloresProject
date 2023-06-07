@@ -29,7 +29,7 @@ public class CListas {
 
     public void createUsers() {
         for (int i = 0; i < 1; i++) {
-            administradorList.add(new CAdministrador("administrador1", "administrador1", i));
+            administradorList.add(new CAdministrador("administrador1", "administrador1", 100));
         }
     }
 
