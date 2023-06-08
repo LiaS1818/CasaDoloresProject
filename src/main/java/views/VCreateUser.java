@@ -25,6 +25,8 @@ public class VCreateUser extends javax.swing.JFrame {
     public VCreateUser(CListas listas) {
         initComponents();
         this.listas = listas;
+        rbAdministrador.setSelected(true);
+        
     }
 
     /**
