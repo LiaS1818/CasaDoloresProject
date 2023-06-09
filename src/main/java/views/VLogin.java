@@ -27,12 +27,12 @@ public class VLogin extends javax.swing.JFrame {
     // Listas de usuarios
 
     CListas listas = null;
-    private String cadenaNumeros ="";
-    
+    private String cadenaNumeros = "";
+
     public VLogin(CListas listas) {
         initComponents();
         this.listas = listas;
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -225,7 +225,7 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "4" -> {
                 index = listas.BuscarIdCocinero(Integer.parseInt(username));
-                new VMenuCocinero(listas).setVisible(true);
+                new VCPrincipales(listas,index).setVisible(true);
             }
             default -> {
                 JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
@@ -237,114 +237,114 @@ public class VLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "1";
-         }else{
-             cadenaNumeros += "1";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "1";
+        } else {
+            cadenaNumeros += "1";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-             if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "2";
-         }else{
-             cadenaNumeros += "2";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "2";
+        } else {
+            cadenaNumeros += "2";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackspaceActionPerformed
         String bt;
-        
-        if(tfUserName.getText().length()>0){
+
+        if (tfUserName.getText().length() > 0) {
             StringBuilder st = new StringBuilder(tfUserName.getText());
-            st.deleteCharAt(tfUserName.getText().length()-1);
+            st.deleteCharAt(tfUserName.getText().length() - 1);
             bt = st.toString();
             tfUserName.setText(bt);
         }
     }//GEN-LAST:event_btnBackspaceActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "3";
-         }else{
-             cadenaNumeros += "3";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "3";
+        } else {
+            cadenaNumeros += "3";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "4";
-         }else{
-             cadenaNumeros += "4";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "4";
+        } else {
+            cadenaNumeros += "4";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "5";
-         }else{
-             cadenaNumeros += "5";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "5";
+        } else {
+            cadenaNumeros += "5";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "6";
-         }else{
-             cadenaNumeros += "6";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "6";
+        } else {
+            cadenaNumeros += "6";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "7";
-         }else{
-             cadenaNumeros += "7";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "7";
+        } else {
+            cadenaNumeros += "7";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "8";
-         }else{
-             cadenaNumeros += "8";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "8";
+        } else {
+            cadenaNumeros += "8";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "9";
-         }else{
-             cadenaNumeros += "9";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "9";
+        } else {
+            cadenaNumeros += "9";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-         if(tfUserName.getText().isEmpty()){
-             cadenaNumeros = "0";
-         }else{
-             cadenaNumeros += "0";
-         }
-         
-         tfUserName.setText(cadenaNumeros);
+        if (tfUserName.getText().isEmpty()) {
+            cadenaNumeros = "0";
+        } else {
+            cadenaNumeros += "0";
+        }
+
+        tfUserName.setText(cadenaNumeros);
     }//GEN-LAST:event_btn0ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,9 @@
  */
 package views;
 
+import com.mycompany.casadoloresproject.CListas;
+import entities.CCocinero;
+import entities.CPlatillo;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
@@ -16,16 +19,28 @@ public class VCPrincipales extends javax.swing.JFrame {
     /**
      * Creates new form VCPrincipales
      */
-    public VCPrincipales() {
+    
+    CListas listas;
+    int index;
+    CCocinero cocinero;
+    public VCPrincipales(CListas listas, int index) {
         initComponents();
-        mostrarPrincipales();
-        jTable1.setValueAt(ABORT, ERROR, NORMAL);
+        this.listas = listas;
+        this.index = index;
+        //this.cocinero = listas.cocineroList.get(index);
+        mostrarPrincipales();        
     }
 
      public void mostrarPrincipales()
     {
-
+        
         addCheckBox(1, jTable1);      
+        int index = 0;
+        for(CPlatillo platillo : listas.platilloList){
+            jTable1.setValueAt(platillo.getsNombre(), index, 0);
+            jTable1.setValueAt(platillo.isIsStock(), index, 1);
+            index++;
+        }
     }
      
      
@@ -108,38 +123,6 @@ public class VCPrincipales extends javax.swing.JFrame {
         }      
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VCPrincipales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VCPrincipales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VCPrincipales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VCPrincipales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VCPrincipales().setVisible(true);
-            }
-        });
-    }
-    
     public boolean IsSelected(int row, int column, JTable table)
     {    
         if(table.getValueAt(row, column) != null){

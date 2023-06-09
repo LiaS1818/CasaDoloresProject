@@ -49,13 +49,6 @@ public class CListas {
         return meseroList.get(meseroList.size() - 1).getiID() + 1;
     }
 
-    public void createProducts() {
-        for (int i = 0; i < 3; i++) {
-            platilloList.add(new CPlatillo("Platillo " + i, "Entrada", 43, "Manana", true));
-            bebidaList.add(new CBebida("Bebida " + i, "Cocteles", 43, "Manana", true));
-        }
-    }
-
     public void showBebidas() {
         for (CBebida bebida : bebidaList) {
             System.out.println(bebida.getsNombre());
@@ -203,4 +196,7 @@ public class CListas {
     }
     
     // Marco Haciendo Modificación
+    public void createPlatillos(){
+        platilloList.add(new CPlatillo("Enchiladas", "Principales",500,"Manaña",true));
+    }
 }

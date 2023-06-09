@@ -24,7 +24,7 @@ public class CasaDoloresProject {
     public static void main(String[] args) {
         CListas listas = new CListas();
         listas.createUsers();
-        listas.createProducts();
+        listas.createPlatillos();
         
         new VLogin(listas).setVisible(true);
     }

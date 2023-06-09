@@ -55,7 +55,6 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(215, 115, 17));
 
-        btnMesas.setBackground(new java.awt.Color(255, 255, 255));
         btnMesas.setForeground(new java.awt.Color(255, 255, 255));
         btnMesas.setText("Mapa Mesas");
         btnMesas.setToolTipText("");
@@ -91,7 +90,6 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
         jLabel2.setText("Id:");
 
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,9 +120,9 @@ public class vMenuAdministrador extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
