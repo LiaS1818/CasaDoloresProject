@@ -26,7 +26,7 @@ public class CasaDoloresProject {
         listas.createUsers();
         listas.createProducts();
         
-        new vMenuAdministrador(listas).setVisible(true);
+        new VLogin(listas).setVisible(true);
     }
    
 }
