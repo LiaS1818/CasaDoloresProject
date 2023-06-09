@@ -4,6 +4,8 @@
  */
 package views;
 
+import com.mycompany.casadoloresproject.CListas;
+import entities.CMesero;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -18,18 +20,18 @@ public final class VMesasComedor extends javax.swing.JFrame {
      * Creates new form VMapaMesas
      */
     
-    public static int ID;
-    public static String Nombre;
+    CListas listas;
+    CMesero mesero;
     
-    public VMesasComedor(int pID, String pNombre) {
+    public VMesasComedor(CListas listas, int index) {
         initComponents();
         this.setLocationRelativeTo(null);
-        ID= pID;
-        Nombre= pNombre;
-        cargarEtiquetas(ID, Nombre);
+        this.listas = listas;
+        mesero = this.listas.meseroList.get(index);
+        cargarEtiquetas();
         cargarImagenMesas();
     }
-    public void cargarImagenMesas(){
+    private void cargarImagenMesas(){
         
         ImageIcon imagenSubtraction1 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen1 = imagenSubtraction1.getImage();
@@ -74,9 +76,9 @@ public final class VMesasComedor extends javax.swing.JFrame {
         btnMesa7.setIcon(imagenSubtraction7);
     }
     
-    public void cargarEtiquetas(int ID, String Nombre){
-        labelNombre.setText(Nombre);
-        labelID.setText(Integer.toString(ID));
+    private void cargarEtiquetas(){
+        labelNombre.setText(mesero.getsUsername());
+        labelID.setText(String.valueOf(mesero.getiID()));
     }
 
     /**
@@ -266,41 +268,6 @@ public final class VMesasComedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMesa4ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VMesasComedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VMesasComedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VMesasComedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VMesasComedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VMesasComedor(ID, Nombre).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMesa1;
