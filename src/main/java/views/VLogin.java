@@ -13,26 +13,25 @@ import entities.CCocinero;
 import entities.CMesero;
 import entities.CPlatillo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+import org.xml.sax.Attributes;
 
 /**
  *
  * @author DELL
  */
-
 // TODO
 // Crear el usurio mesero, bartender y cocinero y validar su ingreso
-
-
 public class VLogin extends javax.swing.JFrame {
     // Listas de usuarios
-    
-     CListas listas = null;
-    public  VLogin(CListas listas ) {
+
+    CListas listas = null;
+
+    public VLogin(CListas listas) {
         initComponents();
         this.listas = listas;
     }
-
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -43,18 +42,21 @@ public class VLogin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUserNameActionPerformed(evt);
             }
         });
+        getContentPane().add(tfUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 62, 89, -1));
 
         tfUserPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUserPassActionPerformed(evt);
             }
         });
+        getContentPane().add(tfUserPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 113, 89, -1));
 
         jButton1.setText("Entrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,34 +64,7 @@ public class VLogin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(226, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tfUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                            .addComponent(tfUserName))
-                        .addGap(85, 85, 85))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(97, 97, 97))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(tfUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(tfUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton1)
-                .addContainerGap(111, Short.MAX_VALUE))
-        );
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 161, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -105,19 +80,30 @@ public class VLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String username = tfUserName.getText();
         String password = tfUserPass.getText();
-        
-        for(CAdministrador user : listas.administradorList){
-            if(user.getsUsername().equals(username) && user.getsPassword().equals(password)){
+        int index = 0;
+        switch (username.substring(0, 1)) {
+            case "1" -> {
                 new vMenuAdministrador(listas).setVisible(true);
-                this.dispose();
+            }
+            case "2" -> {
+                index = listas.BuscarIdBartender(Integer.parseInt(username));
+                new vMenuAdministrador(listas).setVisible(true);
+            }
+            case "3" -> {
+                index = listas.BuscarIdMesero(Integer.parseInt(username));
+                new vMenuAdministrador(listas).setVisible(true);
+            }
+            case "4" -> {
+                index = listas.BuscarIdCocinero(Integer.parseInt(username));
+                new VMenuCocinero(listas).setVisible(true);
+            }
+            default -> {
+                JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
             }
         }
-        
-        for(CMesero user : listas.meseroList){
-            if(user.getsUsername().equals(username) && user.getsPassword().equals(password)){
-                System.out.println("Hola Mesero");
-            }
-        }
+        this.dispose();
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
