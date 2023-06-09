@@ -7,7 +7,6 @@ package views;
 import com.mycompany.casadoloresproject.CListas;
 import entities.CMesero;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -15,26 +14,27 @@ import javax.swing.JOptionPane;
  *
  * @author marco
  */
-public final class VMesasComedor extends javax.swing.JFrame {
+public final class VMesasTerraza extends javax.swing.JFrame {
 
     /**
      * Creates new form VMapaMesas
      */
     
-    CListas listas;
+   CListas listas;
     CMesero mesero;
     int index;
     
-    public VMesasComedor(CListas listas, int index) {
+    public VMesasTerraza(CListas listas, int index) {
+      
         initComponents();
         this.setLocationRelativeTo(null);
-        this.listas = listas;
-        mesero = this.listas.meseroList.get(index);
-        cargarEtiquetas();
         cargarImagenMesas();
         this.index = index;
+        this.listas = listas;
+        this.mesero = listas.meseroList.get(index);
+        cargarEtiquetas();
     }
-    private void cargarImagenMesas(){
+    public void cargarImagenMesas(){
         
         ImageIcon imagenSubtraction1 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen1 = imagenSubtraction1.getImage();
@@ -77,14 +77,14 @@ public final class VMesasComedor extends javax.swing.JFrame {
         Image imagenEscalada7 = imagen7.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction7 = new ImageIcon(imagenEscalada7);
         btnMesa7.setIcon(imagenSubtraction7);
+        
     }
     
-    private void cargarEtiquetas(){
+    public void cargarEtiquetas(){
         labelNombre.setText(mesero.getsUsername());
         labelID.setText(String.valueOf(mesero.getiID()));
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,15 +102,15 @@ public final class VMesasComedor extends javax.swing.JFrame {
         labelID = new javax.swing.JLabel();
         lbArea = new javax.swing.JLabel();
         cbMapa = new javax.swing.JComboBox<>();
-        lbMesa8 = new javax.swing.JLabel();
-        lbMesa9 = new javax.swing.JLabel();
-        lbMesa10 = new javax.swing.JLabel();
-        lbMesa11 = new javax.swing.JLabel();
+        lbMesa1 = new javax.swing.JLabel();
+        lbMesa2 = new javax.swing.JLabel();
+        lbMesa3 = new javax.swing.JLabel();
+        lbMesa4 = new javax.swing.JLabel();
         lbMesa5 = new javax.swing.JLabel();
         lbMesa6 = new javax.swing.JLabel();
         lbMesa7 = new javax.swing.JLabel();
-        btnMesa2 = new javax.swing.JButton();
         btnMesa1 = new javax.swing.JButton();
+        btnMesa2 = new javax.swing.JButton();
         btnMesa3 = new javax.swing.JButton();
         btnMesa4 = new javax.swing.JButton();
         btnMesa5 = new javax.swing.JButton();
@@ -191,21 +191,21 @@ public final class VMesasComedor extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 0, -1, 491));
 
-        lbMesa8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa8.setText("1");
-        jPanel1.add(lbMesa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        lbMesa1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa1.setText("1");
+        jPanel1.add(lbMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
-        lbMesa9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa9.setText("2");
-        jPanel1.add(lbMesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 10, -1));
+        lbMesa2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa2.setText("1");
+        jPanel1.add(lbMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 10, -1));
 
-        lbMesa10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa10.setText("4");
-        jPanel1.add(lbMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 10, -1));
+        lbMesa3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa3.setText("3");
+        jPanel1.add(lbMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 10, -1));
 
-        lbMesa11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa11.setText("3");
-        jPanel1.add(lbMesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 10, -1));
+        lbMesa4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa4.setText("4");
+        jPanel1.add(lbMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 10, -1));
 
         lbMesa5.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa5.setText("5");
@@ -219,11 +219,6 @@ public final class VMesasComedor extends javax.swing.JFrame {
         lbMesa7.setText("7");
         jPanel1.add(lbMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 10, -1));
 
-        btnMesa2.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa2.setBorderPainted(false);
-        btnMesa2.setContentAreaFilled(false);
-        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 126, 95));
-
         btnMesa1.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa1.setBorderPainted(false);
         btnMesa1.setContentAreaFilled(false);
@@ -233,6 +228,11 @@ public final class VMesasComedor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 126, 95));
+
+        btnMesa2.setBackground(new java.awt.Color(204, 204, 204));
+        btnMesa2.setBorderPainted(false);
+        btnMesa2.setContentAreaFilled(false);
+        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 126, 95));
 
         btnMesa3.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa3.setBorderPainted(false);
@@ -276,13 +276,18 @@ public final class VMesasComedor extends javax.swing.JFrame {
     private void btnMesa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMesa4ActionPerformed
-    
-    public void cbMapaActionPerformed(java.awt.event.ActionEvent evt){
-        if (cbMapa.getSelectedItem().equals("Terraza")) {
-            new VMesasTerraza(listas, index).setVisible(true);
-            this.dispose(); 
+
+    private void cbMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMapaActionPerformed
+        
+        if(cbMapa.getSelectedItem().equals("Comedor")){
+            new VMesasComedor(listas, index).setVisible(true); 
+            this.dispose();
         }
-    }
+    }//GEN-LAST:event_cbMapaActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMesa1;
@@ -299,13 +304,13 @@ public final class VMesasComedor extends javax.swing.JFrame {
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel lbArea;
     private javax.swing.JLabel lbID;
-    private javax.swing.JLabel lbMesa10;
-    private javax.swing.JLabel lbMesa11;
+    private javax.swing.JLabel lbMesa1;
+    private javax.swing.JLabel lbMesa2;
+    private javax.swing.JLabel lbMesa3;
+    private javax.swing.JLabel lbMesa4;
     private javax.swing.JLabel lbMesa5;
     private javax.swing.JLabel lbMesa6;
     private javax.swing.JLabel lbMesa7;
-    private javax.swing.JLabel lbMesa8;
-    private javax.swing.JLabel lbMesa9;
     private javax.swing.JLabel lbNombre;
     // End of variables declaration//GEN-END:variables
 }
