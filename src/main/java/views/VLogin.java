@@ -91,7 +91,7 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "3" -> {
                 index = listas.BuscarIdMesero(Integer.parseInt(username));
-                new vMenuAdministrador(listas).setVisible(true);
+                new VMesasComedor(listas, index).setVisible(true);
             }
             case "4" -> {
                 index = listas.BuscarIdCocinero(Integer.parseInt(username));
