@@ -237,23 +237,11 @@ public class VLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "1";
-        } else {
-            cadenaNumeros += "1";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("1");
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "2";
-        } else {
-            cadenaNumeros += "2";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("2");
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackspaceActionPerformed
@@ -264,89 +252,50 @@ public class VLogin extends javax.swing.JFrame {
             st.deleteCharAt(tfUserName.getText().length() - 1);
             bt = st.toString();
             tfUserName.setText(bt);
+            cadenaNumeros = bt;
         }
     }//GEN-LAST:event_btnBackspaceActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "3";
-        } else {
-            cadenaNumeros += "3";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("3");
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "4";
-        } else {
-            cadenaNumeros += "4";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("4");
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "5";
-        } else {
-            cadenaNumeros += "5";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("5");
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "6";
-        } else {
-            cadenaNumeros += "6";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("6");
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "7";
-        } else {
-            cadenaNumeros += "7";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("7");
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "8";
-        } else {
-            cadenaNumeros += "8";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("8");
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "9";
-        } else {
-            cadenaNumeros += "9";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("9");
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        if (tfUserName.getText().isEmpty()) {
-            cadenaNumeros = "0";
-        } else {
-            cadenaNumeros += "0";
-        }
-
-        tfUserName.setText(cadenaNumeros);
+        addNumber("0");
     }//GEN-LAST:event_btn0ActionPerformed
 
+    private void addNumber(String number){
+        
+            cadenaNumeros += number;
+        
+
+        tfUserName.setText(cadenaNumeros);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
