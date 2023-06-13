@@ -19,6 +19,7 @@ public class VMenuCocinero extends javax.swing.JFrame {
     public VMenuCocinero(CListas listas) {
         initComponents();
         this.listas = listas;
+        this.setLocationRelativeTo(null);
     }
 
     /**

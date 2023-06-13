@@ -9,7 +9,7 @@ package entities;
  * @author DELL
  */
 public class CCocinero extends CUsuario{
-    public CCocinero(String sUsername, String sPassword, int piID) {
-        super(sUsername, sPassword, piID);
+    public CCocinero(String sUsername, int piID) {
+        super(sUsername,  piID);
     }
 }
