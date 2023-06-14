@@ -88,6 +88,11 @@ public class VCreateProduct extends javax.swing.JFrame {
         jPanel1.add(cbHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Principal", "Postre", "Extras" }));
+        cbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCategoriaActionPerformed(evt);
+            }
+        });
         jPanel1.add(cbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
         rbBibida.setBackground(new java.awt.Color(215, 115, 17));
@@ -173,8 +178,8 @@ public class VCreateProduct extends javax.swing.JFrame {
         tfPrecio.setText("");
         rbComida.setSelected(true);
         cbCategoria.removeAllItems();
-        cbCategoria.addItem("Entradas");
-        cbCategoria.addItem("Principales");
+        cbCategoria.addItem("Entrada");
+        cbCategoria.addItem("Principal");
         cbCategoria.addItem("Postres");
         cbCategoria.addItem("Extras");
         cbHorario.removeAllItems();
@@ -196,8 +201,8 @@ public class VCreateProduct extends javax.swing.JFrame {
     private void rbComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbComidaActionPerformed
         // TODO add your handling code here:
         cbCategoria.removeAllItems();
-        cbCategoria.addItem("Entradas");
-        cbCategoria.addItem("Principales");
+        cbCategoria.addItem("Entrada");
+        cbCategoria.addItem("Principal");
         cbCategoria.addItem("Postres");
         cbCategoria.addItem("Extras");
     }//GEN-LAST:event_rbComidaActionPerformed
@@ -205,6 +210,10 @@ public class VCreateProduct extends javax.swing.JFrame {
     private void cbHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbHorarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbHorarioActionPerformed
+
+    private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

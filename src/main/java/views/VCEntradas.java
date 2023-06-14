@@ -15,7 +15,7 @@ import javax.swing.table.TableColumn;
  *
  * @author DELL
  */
-public class VCPrincipales extends javax.swing.JFrame {
+public class VCEntradas extends javax.swing.JFrame {
 
     /**
      * Creates new form VCPrincipales
@@ -23,16 +23,15 @@ public class VCPrincipales extends javax.swing.JFrame {
     CListas listas;
     int index;
     CCocinero cocinero;
-    String platilloType = "Principal";
+    String platilloType = "Entrada";
 
-    public VCPrincipales(CListas listas, int index) {
+    public VCEntradas(CListas listas, int index) {
         initComponents();
         this.listas = listas;
         this.index = index;
         crearFilas();
-        addCheckBox(1, jTable1);
-
         //this.cocinero = listas.cocineroList.get(index);
+        addCheckBox(1, jTable1);
         mostrarPrincipales();
     }
 
@@ -40,15 +39,14 @@ public class VCPrincipales extends javax.swing.JFrame {
         DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
         Object nuevo[] = {temp.getRowCount() + 1, "", ""};
         int size = listas.getPlatilloSize(platilloType);
-        System.out.println(size);
         for (int i = 0; i < size; i++) {
             temp.addRow(nuevo);
         }
+
     }
 
     private void mostrarPrincipales() {
         int i = 0;
-
         for (CPlatillo platillo : listas.platilloList) {
             if (platillo.getsCategoria().equals(platilloType)) {
                 jTable1.setValueAt(platillo.getsNombre(), i, 0);
@@ -134,14 +132,13 @@ public class VCPrincipales extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        boolean isSelected;
         for (int i = 0; i < jTable1.getRowCount(); i++) {
-            if (IsSelected(i, 1, jTable1)) {
-                listas.setIsStockPlatillo(i, platilloType, true);
-                System.out.println(i);
-            } else {
-                listas.setIsStockPlatillo(i, platilloType, false);
-                System.out.println("False: " + i);
-            }
+            //System.out.println(jTable1.getValueAt(i, 1).toString());
+            //listas.setIsStockPlatillo(i, platilloType, IsSelected(i, 1, jTable1));
+            
+            isSelected = IsSelected(i, 1, jTable1);
+            listas.setIsStockPlatillo(i, platilloType, isSelected);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
