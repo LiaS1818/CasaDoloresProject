@@ -27,6 +27,12 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
         interCreateProduct = new VCreateProduct(listas);
         deskPaneAdmin.add(interCreateProduct);
+        
+        interCreateUser.setVisible(false);
+        interCreateUser.setEnabled(false);
+        interCreateProduct.setVisible(false);
+        interCreateProduct.setEnabled(false);
+        
         this.listas = listas;
     }
 
@@ -209,13 +215,16 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
         interCreateUser.setVisible(true );
         interCreateProduct.setVisible(false);
-
+        interCreateUser.setEnabled(true);
+        interCreateProduct.setEnabled(false);
     }//GEN-LAST:event_miUserCrearActionPerformed
 
     private void miProCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProCrearActionPerformed
 
         interCreateProduct.setVisible(true);
+        interCreateProduct.setEnabled(true);
         interCreateUser.setVisible(false);
+        interCreateUser.setEnabled(false);
     }//GEN-LAST:event_miProCrearActionPerformed
 
     private void miUserEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserEliminarActionPerformed
