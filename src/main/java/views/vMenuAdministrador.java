@@ -18,8 +18,15 @@ public class vMenuAdministrador extends javax.swing.JFrame {
      */
     CListas listas = null;
 
+    VCreateUser interCreateUser;
+    VCreateProduct interCreateProduct;
     public vMenuAdministrador(CListas listas) {
         initComponents();
+        interCreateUser = new VCreateUser(listas);
+        deskPaneAdmin.add(interCreateUser);
+
+        interCreateProduct = new VCreateProduct(listas);
+        deskPaneAdmin.add(interCreateProduct);
         this.listas = listas;
     }
 
@@ -33,13 +40,14 @@ public class vMenuAdministrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnMesas = new javax.swing.JButton();
+        deskPaneAdmin = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JLabel();
         txtId = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        btnMesas = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miUserCrear = new javax.swing.JMenuItem();
@@ -55,31 +63,26 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(215, 115, 17));
 
-        btnMesas.setForeground(new java.awt.Color(255, 255, 255));
-        btnMesas.setText("Mapa Mesas");
-        btnMesas.setToolTipText("");
-        btnMesas.setBorderPainted(false);
-        btnMesas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMesasActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout deskPaneAdminLayout = new javax.swing.GroupLayout(deskPaneAdmin);
+        deskPaneAdmin.setLayout(deskPaneAdminLayout);
+        deskPaneAdminLayout.setHorizontalGroup(
+            deskPaneAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
+        );
+        deskPaneAdminLayout.setVerticalGroup(
+            deskPaneAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 616, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
-                .addComponent(btnMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+            .addComponent(deskPaneAdmin)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(376, Short.MAX_VALUE)
-                .addComponent(btnMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
+            .addComponent(deskPaneAdmin)
         );
 
         getContentPane().add(jPanel1);
@@ -97,24 +100,38 @@ public class vMenuAdministrador extends javax.swing.JFrame {
             }
         });
 
+        btnMesas.setForeground(new java.awt.Color(255, 255, 255));
+        btnMesas.setText("Mapa Mesas");
+        btnMesas.setToolTipText("");
+        btnMesas.setBorderPainted(false);
+        btnMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,9 +144,11 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                .addComponent(btnMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
+                .addGap(50, 50, 50))
         );
 
         getContentPane().add(jPanel2);
@@ -187,14 +206,16 @@ public class vMenuAdministrador extends javax.swing.JFrame {
 
     // Crear Producto
     private void miUserCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserCrearActionPerformed
-        // TODO add your handling code here:
-        new VCreateUser(listas).setVisible(true);
-        this.dispose();
+
+        interCreateUser.setVisible(true );
+        interCreateProduct.setVisible(false);
+
     }//GEN-LAST:event_miUserCrearActionPerformed
 
     private void miProCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProCrearActionPerformed
-        new VCreateProduct(listas).setVisible(true);
-        this.dispose();
+
+        interCreateProduct.setVisible(true);
+        interCreateUser.setVisible(false);
     }//GEN-LAST:event_miProCrearActionPerformed
 
     private void miUserEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUserEliminarActionPerformed
@@ -205,36 +226,36 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         switch (ID.substring(0, 1)) {
             case "1" -> {
                 bdID = listas.BuscarIdAdministrador(Integer.parseInt(ID));
-                if(bdID == -1){
+                if (bdID == -1) {
                     showMessageDialogFail(ID);
-                }else{
+                } else {
                     listas.removeAdministrador(bdID);
                     showMessageDialogSuccess("Usuario");
                 }
             }
             case "2" -> {
                 bdID = listas.BuscarIdBartender(Integer.parseInt(ID));
-                if(bdID == -1){
+                if (bdID == -1) {
                     showMessageDialogFail(ID);
-                }else{
+                } else {
                     listas.removeBartender(bdID);
                     showMessageDialogSuccess("Usuario");
                 }
             }
             case "3" -> {
                 bdID = listas.BuscarIdMesero(Integer.parseInt(ID));
-                if(bdID == -1){
+                if (bdID == -1) {
                     showMessageDialogFail(ID);
-                }else{
+                } else {
                     listas.removeMesero(bdID);
                     showMessageDialogSuccess("Usuario");
                 }
             }
             case "4" -> {
                 bdID = listas.BuscarIdCocinero(Integer.parseInt(ID));
-                if(bdID == -1){
+                if (bdID == -1) {
                     showMessageDialogFail(ID);
-                }else{
+                } else {
                     listas.removeCocinero(bdID);
                     showMessageDialogSuccess("Usuario");
                 }
@@ -248,45 +269,46 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         int bdID = 0;
         String name = JOptionPane.showInputDialog("Ingresa el Nombre del producto");
-        
+
         int indexComida = listas.buscarComida(name);
         int indexBebida = listas.buscarBebida(name);
-        
-        if(indexComida == -1 && indexBebida == -1){
+
+        if (indexComida == -1 && indexBebida == -1) {
             JOptionPane.showMessageDialog(this, "No se encontró el Producto", "Eliminar Producto", 1);
             return;
         }
-        
-        if(indexComida != -1){
+
+        if (indexComida != -1) {
             listas.removePlatillo(indexComida);
             showMessageDialogSuccess("Comida");
             return;
         }
-        
+
         listas.removeBebida(indexComida);
         showMessageDialogSuccess("Bebida");
     }//GEN-LAST:event_miProEliminarActionPerformed
 
     private void btnMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesasActionPerformed
-        
+
     }//GEN-LAST:event_btnMesasActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-       new VLogin(listas).setVisible(true);
+        new VLogin(listas).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void showMessageDialogSuccess(String item){
+    private void showMessageDialogSuccess(String item) {
         JOptionPane.showMessageDialog(this, "Ha sido eliminado correctamente", "Eliminar " + item, 1);
     }
-    
-    private void showMessageDialogFail(String ID){
+
+    private void showMessageDialogFail(String ID) {
         JOptionPane.showMessageDialog(this, "No se encontró Usuario con el ID: " + ID, "Eliminar Usuario", 1);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMesas;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JDesktopPane deskPaneAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

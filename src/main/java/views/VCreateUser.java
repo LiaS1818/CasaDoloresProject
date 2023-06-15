@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author DELL
  */
-public class VCreateUser extends javax.swing.JFrame {
+public class VCreateUser extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VCreateUser
@@ -26,7 +26,7 @@ public class VCreateUser extends javax.swing.JFrame {
         initComponents();
         this.listas = listas;
         rbAdministrador.setSelected(true);
-        this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -106,7 +106,7 @@ public class VCreateUser extends javax.swing.JFrame {
         jLabel1.setText("Nuevo Usuario");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

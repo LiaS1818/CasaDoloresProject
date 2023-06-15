@@ -15,7 +15,7 @@ import javax.swing.table.TableColumn;
  *
  * @author DELL
  */
-public class VCPrincipales extends javax.swing.JFrame {
+public class VCPrincipales extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VCPrincipales
