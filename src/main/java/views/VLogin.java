@@ -297,13 +297,7 @@ public class VLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void addNumber(String number) {
-<<<<<<< HEAD
         cadenaNumeros += number;
-=======
-
-        cadenaNumeros += number;
-
->>>>>>> 131fea41c93efadbf1ac00bda32812f485b01beb
         tfUserName.setText(cadenaNumeros);
     }
 
