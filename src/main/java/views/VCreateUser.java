@@ -26,7 +26,7 @@ public class VCreateUser extends javax.swing.JFrame {
         initComponents();
         this.listas = listas;
         rbAdministrador.setSelected(true);
-        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,124 +39,74 @@ public class VCreateUser extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        tfName = new javax.swing.JTextField();
         rbAdministrador = new javax.swing.JRadioButton();
-        tfPass = new javax.swing.JPasswordField();
         rbMesero = new javax.swing.JRadioButton();
         rbBarMan = new javax.swing.JRadioButton();
-        btnCrear = new javax.swing.JButton();
         rbCocinero = new javax.swing.JRadioButton();
         btnCancelar = new javax.swing.JButton();
-        tfName = new javax.swing.JTextField();
+        btnCrear = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nuevo Usuario");
+        jPanel1.setBackground(new java.awt.Color(215, 115, 17));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        jPanel1.add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 110, 30));
 
-        jLabel3.setText("Contraseña:");
-
+        rbAdministrador.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbAdministrador);
+        rbAdministrador.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         rbAdministrador.setText("Administrador");
+        jPanel1.add(rbAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
+        rbMesero.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbMesero);
+        rbMesero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         rbMesero.setText("Mesero");
+        jPanel1.add(rbMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
+        rbBarMan.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbBarMan);
+        rbBarMan.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         rbBarMan.setText("BarMan");
+        jPanel1.add(rbBarMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
-        btnCrear.setText("Crear");
-        btnCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearActionPerformed(evt);
-            }
-        });
-
+        rbCocinero.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbCocinero);
+        rbCocinero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         rbCocinero.setText("Cocinero");
+        jPanel1.add(rbCocinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
+        btnCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 102, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(rbCocinero)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(148, 148, 148))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(rbAdministrador)
-                                    .addGap(107, 107, 107))
-                                .addComponent(rbMesero, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(rbBarMan))
-                        .addGap(125, 159, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(178, 178, 178))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(141, 141, 141)
-                    .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(153, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel3)
-                .addGap(42, 42, 42)
-                .addComponent(rbAdministrador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbMesero)
-                .addGap(18, 18, 18)
-                .addComponent(rbBarMan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rbCocinero)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCrear)
-                    .addComponent(btnCancelar))
-                .addGap(28, 28, 28))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(126, 126, 126)
-                    .addComponent(tfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(235, Short.MAX_VALUE)))
-        );
+        btnCrear.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnCrear.setText("Crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 102, -1));
+
+        jLabel1.setText("Nuevo Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -166,21 +116,21 @@ public class VCreateUser extends javax.swing.JFrame {
         int ID = 0;
 
         name = tfName.getText();
-        pass = tfPass.getText();
+        //pass = tfPass.getText()
 
         if (rbAdministrador.isSelected()) {
             ID = (listas.administradorList.isEmpty()) ? 100 : listas.createIdAdministrador();
-            listas.crearAdministrador(new CAdministrador(name, pass, ID));
+            listas.crearAdministrador(new CAdministrador(name, ID));
         } else if (rbBarMan.isSelected()) {
             ID = (listas.bartenderList.isEmpty()) ? 200 : listas.createIdBartender();
-            listas.crearBartender(new CBartender(name, pass, ID));
+            listas.crearBartender(new CBartender(name, ID));
         } else if (rbMesero.isSelected()) {
             ID = (listas.meseroList.isEmpty()) ? 300 : listas.createIdMesero();
             System.out.println("" + ID);
-            listas.crearMesero(new CMesero(name, pass, ID));
+            listas.crearMesero(new CMesero(name, ID));
         } else if (rbCocinero.isSelected()) {
             ID = (listas.cocineroList.isEmpty()) ? 400 : listas.createIdCocinero();
-            listas.crearCocinero(new CCocinero(name, pass, ID));
+            listas.crearCocinero(new CCocinero(name, ID));
         }
 
         JOptionPane.showMessageDialog(this, "Tu ID es el: " + ID, "Usuario Creado", 1);
@@ -197,7 +147,6 @@ public class VCreateUser extends javax.swing.JFrame {
 
     public void clearForm() {
         tfName.setText("");
-        tfPass.setText("");
         rbAdministrador.setSelected(true);
     }
     /**
@@ -211,12 +160,11 @@ public class VCreateUser extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton rbAdministrador;
     private javax.swing.JRadioButton rbBarMan;
     private javax.swing.JRadioButton rbCocinero;
     private javax.swing.JRadioButton rbMesero;
     private javax.swing.JTextField tfName;
-    private javax.swing.JPasswordField tfPass;
     // End of variables declaration//GEN-END:variables
 }

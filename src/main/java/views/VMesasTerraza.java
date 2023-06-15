@@ -33,6 +33,7 @@ public final class VMesasTerraza extends javax.swing.JFrame {
         this.listas = listas;
         this.mesero = listas.meseroList.get(index);
         cargarEtiquetas();
+        this.setLocationRelativeTo(null);
     }
     public void cargarImagenMesas(){
         
@@ -40,43 +41,25 @@ public final class VMesasTerraza extends javax.swing.JFrame {
         Image imagen1 = imagenSubtraction1.getImage();
         Image imagenEscalada1 = imagen1.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction1 = new ImageIcon(imagenEscalada1);
-        btnMesa1.setIcon(imagenSubtraction1);
+        btnMesa8.setIcon(imagenSubtraction1);
         
         ImageIcon imagenSubtraction2 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen2 = imagenSubtraction2.getImage();
         Image imagenEscalada2 = imagen2.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction2 = new ImageIcon(imagenEscalada2);
-        btnMesa2.setIcon(imagenSubtraction2);
+        btnMesa9.setIcon(imagenSubtraction2);
         
         ImageIcon imagenSubtraction3 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen3 = imagenSubtraction3.getImage();
         Image imagenEscalada3 = imagen3.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction3 = new ImageIcon(imagenEscalada3);
-        btnMesa3.setIcon(imagenSubtraction3);
+        btnMesa10.setIcon(imagenSubtraction3);
         
         ImageIcon imagenSubtraction4 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen4 = imagenSubtraction4.getImage();
         Image imagenEscalada4 = imagen4.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction4 = new ImageIcon(imagenEscalada4);
-        btnMesa4.setIcon(imagenSubtraction4);
-        
-        ImageIcon imagenSubtraction5 = new ImageIcon("src/main/java/img/desk.png");
-        Image imagen5 = imagenSubtraction5.getImage();
-        Image imagenEscalada5 = imagen5.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
-        imagenSubtraction5 = new ImageIcon(imagenEscalada5);
-        btnMesa5.setIcon(imagenSubtraction5);
-        
-        ImageIcon imagenSubtraction6 = new ImageIcon("src/main/java/img/desk.png");
-        Image imagen6 = imagenSubtraction6.getImage();
-        Image imagenEscalada6 = imagen6.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
-        imagenSubtraction6 = new ImageIcon(imagenEscalada6);
-        btnMesa6.setIcon(imagenSubtraction6);
-        
-        ImageIcon imagenSubtraction7 = new ImageIcon("src/main/java/img/desk.png");
-        Image imagen7 = imagenSubtraction7.getImage();
-        Image imagenEscalada7 = imagen7.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
-        imagenSubtraction7 = new ImageIcon(imagenEscalada7);
-        btnMesa7.setIcon(imagenSubtraction7);
+        btnMesa11.setIcon(imagenSubtraction4);
         
     }
     
@@ -102,20 +85,14 @@ public final class VMesasTerraza extends javax.swing.JFrame {
         labelID = new javax.swing.JLabel();
         lbArea = new javax.swing.JLabel();
         cbMapa = new javax.swing.JComboBox<>();
-        lbMesa1 = new javax.swing.JLabel();
-        lbMesa2 = new javax.swing.JLabel();
-        lbMesa3 = new javax.swing.JLabel();
-        lbMesa4 = new javax.swing.JLabel();
-        lbMesa5 = new javax.swing.JLabel();
-        lbMesa6 = new javax.swing.JLabel();
-        lbMesa7 = new javax.swing.JLabel();
-        btnMesa1 = new javax.swing.JButton();
-        btnMesa2 = new javax.swing.JButton();
-        btnMesa3 = new javax.swing.JButton();
-        btnMesa4 = new javax.swing.JButton();
-        btnMesa5 = new javax.swing.JButton();
-        btnMesa6 = new javax.swing.JButton();
-        btnMesa7 = new javax.swing.JButton();
+        lbMesa8 = new javax.swing.JLabel();
+        lbMesa9 = new javax.swing.JLabel();
+        lbMesa10 = new javax.swing.JLabel();
+        lbMesa11 = new javax.swing.JLabel();
+        btnMesa8 = new javax.swing.JButton();
+        btnMesa9 = new javax.swing.JButton();
+        btnMesa10 = new javax.swing.JButton();
+        btnMesa11 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -138,7 +115,7 @@ public final class VMesasTerraza extends javax.swing.JFrame {
         lbArea.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         lbArea.setText("Area");
 
-        cbMapa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedor", "Terraza" }));
+        cbMapa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terraza", "Comedor" }));
         cbMapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbMapaActionPerformed(evt);
@@ -191,91 +168,64 @@ public final class VMesasTerraza extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 0, -1, 491));
 
-        lbMesa1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa1.setText("1");
-        jPanel1.add(lbMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+        lbMesa8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa8.setText("8");
+        jPanel1.add(lbMesa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
-        lbMesa2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa2.setText("1");
-        jPanel1.add(lbMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 10, -1));
+        lbMesa9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa9.setText("9");
+        jPanel1.add(lbMesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 10, -1));
 
-        lbMesa3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa3.setText("3");
-        jPanel1.add(lbMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 10, -1));
+        lbMesa10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa10.setText("10");
+        jPanel1.add(lbMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 20, -1));
 
-        lbMesa4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa4.setText("4");
-        jPanel1.add(lbMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 10, -1));
+        lbMesa11.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbMesa11.setText("11");
+        jPanel1.add(lbMesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 20, -1));
 
-        lbMesa5.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa5.setText("5");
-        jPanel1.add(lbMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 10, -1));
-
-        lbMesa6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa6.setText("6");
-        jPanel1.add(lbMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 10, -1));
-
-        lbMesa7.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lbMesa7.setText("7");
-        jPanel1.add(lbMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 10, -1));
-
-        btnMesa1.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa1.setBorderPainted(false);
-        btnMesa1.setContentAreaFilled(false);
-        btnMesa1.addActionListener(new java.awt.event.ActionListener() {
+        btnMesa8.setBackground(new java.awt.Color(204, 204, 204));
+        btnMesa8.setBorderPainted(false);
+        btnMesa8.setContentAreaFilled(false);
+        btnMesa8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMesa1ActionPerformed(evt);
+                btnMesa8ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 126, 95));
+        jPanel1.add(btnMesa8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 126, 95));
 
-        btnMesa2.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa2.setBorderPainted(false);
-        btnMesa2.setContentAreaFilled(false);
-        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 126, 95));
+        btnMesa9.setBackground(new java.awt.Color(204, 204, 204));
+        btnMesa9.setBorderPainted(false);
+        btnMesa9.setContentAreaFilled(false);
+        jPanel1.add(btnMesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 126, 95));
 
-        btnMesa3.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa3.setBorderPainted(false);
-        btnMesa3.setContentAreaFilled(false);
-        jPanel1.add(btnMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 126, 95));
+        btnMesa10.setBackground(new java.awt.Color(204, 204, 204));
+        btnMesa10.setBorderPainted(false);
+        btnMesa10.setContentAreaFilled(false);
+        jPanel1.add(btnMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 126, 95));
 
-        btnMesa4.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa4.setBorderPainted(false);
-        btnMesa4.setContentAreaFilled(false);
-        btnMesa4.addActionListener(new java.awt.event.ActionListener() {
+        btnMesa11.setBackground(new java.awt.Color(204, 204, 204));
+        btnMesa11.setBorderPainted(false);
+        btnMesa11.setContentAreaFilled(false);
+        btnMesa11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMesa4ActionPerformed(evt);
+                btnMesa11ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 126, 95));
-
-        btnMesa5.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa5.setBorderPainted(false);
-        btnMesa5.setContentAreaFilled(false);
-        jPanel1.add(btnMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 126, 95));
-
-        btnMesa6.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa6.setBorderPainted(false);
-        btnMesa6.setContentAreaFilled(false);
-        jPanel1.add(btnMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 126, 95));
-
-        btnMesa7.setBackground(new java.awt.Color(204, 204, 204));
-        btnMesa7.setBorderPainted(false);
-        btnMesa7.setContentAreaFilled(false);
-        jPanel1.add(btnMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 126, 95));
+        jPanel1.add(btnMesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 126, 95));
 
         getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMesa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa1ActionPerformed
+    private void btnMesa8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa8ActionPerformed
         JOptionPane.showMessageDialog(null, "Hola Rangel");
-    }//GEN-LAST:event_btnMesa1ActionPerformed
+    }//GEN-LAST:event_btnMesa8ActionPerformed
 
-    private void btnMesa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa4ActionPerformed
+    private void btnMesa11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMesa4ActionPerformed
+    }//GEN-LAST:event_btnMesa11ActionPerformed
 
     private void cbMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMapaActionPerformed
         
@@ -290,13 +240,10 @@ public final class VMesasTerraza extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMesa1;
-    private javax.swing.JButton btnMesa2;
-    private javax.swing.JButton btnMesa3;
-    private javax.swing.JButton btnMesa4;
-    private javax.swing.JButton btnMesa5;
-    private javax.swing.JButton btnMesa6;
-    private javax.swing.JButton btnMesa7;
+    private javax.swing.JButton btnMesa10;
+    private javax.swing.JButton btnMesa11;
+    private javax.swing.JButton btnMesa8;
+    private javax.swing.JButton btnMesa9;
     private javax.swing.JComboBox<String> cbMapa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -304,13 +251,10 @@ public final class VMesasTerraza extends javax.swing.JFrame {
     private javax.swing.JLabel labelNombre;
     private javax.swing.JLabel lbArea;
     private javax.swing.JLabel lbID;
-    private javax.swing.JLabel lbMesa1;
-    private javax.swing.JLabel lbMesa2;
-    private javax.swing.JLabel lbMesa3;
-    private javax.swing.JLabel lbMesa4;
-    private javax.swing.JLabel lbMesa5;
-    private javax.swing.JLabel lbMesa6;
-    private javax.swing.JLabel lbMesa7;
+    private javax.swing.JLabel lbMesa10;
+    private javax.swing.JLabel lbMesa11;
+    private javax.swing.JLabel lbMesa8;
+    private javax.swing.JLabel lbMesa9;
     private javax.swing.JLabel lbNombre;
     // End of variables declaration//GEN-END:variables
 }

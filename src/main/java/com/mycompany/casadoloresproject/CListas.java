@@ -29,7 +29,7 @@ public class CListas {
 
     public void createUsers() {
         for (int i = 0; i < 1; i++) {
-            administradorList.add(new CAdministrador("100", "administrador1", 100));
+            administradorList.add(new CAdministrador("100", 100));
         }
     }
 
@@ -92,7 +92,9 @@ public class CListas {
     public int BuscarIdAdministrador(int ID) {
         int Index = 0;
 
-        if (administradorList.isEmpty()) return -1;
+        if (administradorList.isEmpty()) {
+            return -1;
+        }
 
         for (CAdministrador usuario : administradorList) {
             if (usuario.getiID() == ID) {
@@ -120,8 +122,10 @@ public class CListas {
 
     public int BuscarIdMesero(int ID) {
         int Index = 0;
-        
-        if (meseroList.isEmpty()) return -1;
+
+        if (meseroList.isEmpty()) {
+            return -1;
+        }
         for (CMesero usuario : meseroList) {
             if (usuario.getiID() == ID) {
                 return Index;
@@ -133,7 +137,9 @@ public class CListas {
 
     public int BuscarIdCocinero(int ID) {
         int Index = 0;
-        if (cocineroList.isEmpty()) return -1; 
+        if (cocineroList.isEmpty()) {
+            return -1;
+        }
         for (CCocinero usuario : cocineroList) {
             if (usuario.getiID() == ID) {
                 return Index;
@@ -158,45 +164,88 @@ public class CListas {
     public void removeCocinero(int index) {
         cocineroList.remove(index);
     }
-    
-    public int buscarComida(String pComida){
+
+    public int buscarComida(String pComida) {
         int index = 0;
-        
-        if(platilloList.isEmpty()) return -1;
-        
-        for(CPlatillo comida : platilloList){
-            if(comida.getsNombre().equals(pComida))
+
+        if (platilloList.isEmpty()) {
+            return -1;
+        }
+
+        for (CPlatillo comida : platilloList) {
+            if (comida.getsNombre().equals(pComida)) {
                 return index;
+            }
             index++;
         }
-        
+
         return -1;
     }
-    
-    public int buscarBebida(String pBebida){
+
+    public int buscarBebida(String pBebida) {
         int index = 0;
-        
-        if(bebidaList.isEmpty()) return -1;
-        
-        for(CBebida comida : bebidaList){
-            if(comida.getsNombre().equals(pBebida))
+
+        if (bebidaList.isEmpty()) {
+            return -1;
+        }
+
+        for (CBebida comida : bebidaList) {
+            if (comida.getsNombre().equals(pBebida)) {
                 return index;
+            }
             index++;
         }
-        
+
         return -1;
     }
-    
-    public void removePlatillo(int index){
+
+    public void removePlatillo(int index) {
         platilloList.remove(index);
     }
-    
-    public void removeBebida(int index){
+
+    public void removeBebida(int index) {
         bebidaList.remove(index);
     }
-    
+
     // Marco Haciendo Modificación
-    public void createPlatillos(){
-        platilloList.add(new CPlatillo("Enchiladas", "Principales",500,"Manaña",true));
+    public void createPlatillos() {
+        platilloList.add(new CPlatillo("Enchiladas", "Principal", 500, "Manaña", true));
+    }
+
+    public void setIsStockPlatillo(int position, String platilloType, boolean isStock) {
+        int index = 0, superIndex = 0;
+        for (CPlatillo platillo : platilloList) {
+            if (platillo.getsCategoria().equals(platilloType)) {
+                if (index == position) {
+                    platilloList.get(superIndex).setIsStock(isStock);
+                }
+                index++;
+            }
+            superIndex++;
+        }
+    }
+
+    public void setIsStockBebida(int position, String bebidaType, boolean isStock) {
+        int index = 0, superIndex = 0;
+        for (CBebida bebida : bebidaList) {
+            if (bebida.getsCategoria().equals(bebidaType)) {
+                if (index == position) {
+                    bebidaList.get(superIndex).setIsStock(isStock);
+                }
+                index++;
+            }
+            superIndex++;
+
+        }
+    }
+
+    public int getPlatilloSize(String platilloType) {
+        int index = 0;
+        for (CPlatillo platillo : platilloList) {
+            if (platillo.getsCategoria().equals(platilloType)) {
+                index++;
+            }
+        }
+        return index;
     }
 }

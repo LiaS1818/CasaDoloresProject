@@ -10,12 +10,10 @@ package entities;
  */
 public class CUsuario {
     private String sUsername;
-    private String sPassword;
     private int iID;
 
-    public CUsuario(String sUsername, String sPassword, int piID) {
+    public CUsuario(String sUsername, int piID) {
         this.sUsername = sUsername;
-        this.sPassword = sPassword;
         this.iID = piID;
     }
 
@@ -25,14 +23,6 @@ public class CUsuario {
 
     public void setsUsername(String sUsername) {
         this.sUsername = sUsername;
-    }
-
-    public String getsPassword() {
-        return sPassword;
-    }
-
-    public void setsPassword(String sPassword) {
-        this.sPassword = sPassword;
     }
 
     public int getiID() {

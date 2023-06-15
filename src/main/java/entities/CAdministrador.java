@@ -10,8 +10,8 @@ package entities;
  */
 public class CAdministrador extends CUsuario{
 
-    public CAdministrador(String sUsername, String sPassword, int piID) {
-        super(sUsername, sPassword, piID);
+    public CAdministrador(String sUsername, int piID) {
+        super(sUsername,  piID);
     }
     
 }

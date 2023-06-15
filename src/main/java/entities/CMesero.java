@@ -10,8 +10,8 @@ package entities;
  */
 public class CMesero extends CUsuario{
 
-    public CMesero(String sUsername, String sPassword, int piID) {
-        super(sUsername, sPassword, piID);
+    public CMesero(String sUsername, int piID) {
+        super(sUsername,  piID);
     }
     
     

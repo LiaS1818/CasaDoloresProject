@@ -10,8 +10,8 @@ package entities;
  */
 public class CBartender  extends CUsuario {
 
-    public CBartender(String sUsername, String sPassword, int piID) {
-        super(sUsername, sPassword, piID);
+    public CBartender(String sUsername,int piID) {
+        super(sUsername, piID);
     }
     
 }

@@ -206,7 +206,11 @@ public class VLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUserNameActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+
         String username = tfUserName.getText();
+        if (username.equals("")) {
+            JOptionPane.showMessageDialog(null, "El campo no debe estar vacio");
+        }
         //String password = tfUserPass.getText();
         int index = 0;
         switch (username.substring(0, 1)) {
@@ -225,7 +229,11 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "4" -> {
                 index = listas.BuscarIdCocinero(Integer.parseInt(username));
+<<<<<<< HEAD
                 new VCPrincipales(listas, index).setVisible(true);
+=======
+                new VMenuCocinero(listas, index).setVisible(true);
+>>>>>>> 131fea41c93efadbf1ac00bda32812f485b01beb
             }
             default -> {
                 JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
@@ -289,7 +297,13 @@ public class VLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void addNumber(String number) {
+<<<<<<< HEAD
         cadenaNumeros += number;
+=======
+
+        cadenaNumeros += number;
+
+>>>>>>> 131fea41c93efadbf1ac00bda32812f485b01beb
         tfUserName.setText(cadenaNumeros);
     }
 
