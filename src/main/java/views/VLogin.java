@@ -225,7 +225,7 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "4" -> {
                 index = listas.BuscarIdCocinero(Integer.parseInt(username));
-                new VCPrincipales(listas,index).setVisible(true);
+                new VCPrincipales(listas, index).setVisible(true);
             }
             default -> {
                 JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
@@ -288,14 +288,11 @@ public class VLogin extends javax.swing.JFrame {
         addNumber("0");
     }//GEN-LAST:event_btn0ActionPerformed
 
-    private void addNumber(String number){
-        
-            cadenaNumeros += number;
-        
-
+    private void addNumber(String number) {
+        cadenaNumeros += number;
         tfUserName.setText(cadenaNumeros);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
