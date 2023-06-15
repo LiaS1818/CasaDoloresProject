@@ -229,11 +229,7 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "4" -> {
                 index = listas.BuscarIdCocinero(Integer.parseInt(username));
-<<<<<<< HEAD
-                new VCPrincipales(listas, index).setVisible(true);
-=======
                 new VMenuCocinero(listas, index).setVisible(true);
->>>>>>> 131fea41c93efadbf1ac00bda32812f485b01beb
             }
             default -> {
                 JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
