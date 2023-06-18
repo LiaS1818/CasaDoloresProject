@@ -81,7 +81,7 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
         btnMesa11 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,7 +132,7 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
         });
         jPanel1.add(btnMesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 126, 95));
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 777, 541));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

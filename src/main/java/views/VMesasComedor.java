@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author marco
  */
-public final class VMesasComedor extends javax.swing.JFrame {
+public final class VMesasComedor extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VMapaMesas
@@ -27,7 +27,6 @@ public final class VMesasComedor extends javax.swing.JFrame {
     
     public VMesasComedor(CListas listas, int index) {
         initComponents();
-        this.setLocationRelativeTo(null);
         this.listas = listas;
         mesero = this.listas.meseroList.get(index);
         cargarImagenMesas();
@@ -107,7 +106,7 @@ public final class VMesasComedor extends javax.swing.JFrame {
         lbMesa9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,7 +189,7 @@ public final class VMesasComedor extends javax.swing.JFrame {
 
         jPanel1.add(jInternalFrame1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 490));
 
-        getContentPane().add(jPanel1);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 786, 491));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
