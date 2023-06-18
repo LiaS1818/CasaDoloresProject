@@ -216,20 +216,23 @@ public class VLogin extends javax.swing.JFrame {
         switch (username.substring(0, 1)) {
             case "1": {
                 new vMenuAdministrador(listas).setVisible(true);
+            break;
             }
             case "2": {
                 index = listas.BuscarIdBartender(Integer.parseInt(username));
-                new vMenuAdministrador(listas).setVisible(true);
+                new VMenuMesero(listas, index).setVisible(true);
+            break;
             }
             case "3": {
                 index = listas.BuscarIdMesero(Integer.parseInt(username));
                 new VMenuMesero(listas, index).setVisible(true);
                 System.out.println("entro");
-                // Para Lia
+            break;
             }
             case "4": {
                 index = listas.BuscarIdCocinero(Integer.parseInt(username));
                 new VMenuCocinero(listas, index).setVisible(true);
+            break;
             }
             default: {
                 JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
