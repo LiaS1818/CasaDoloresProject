@@ -281,7 +281,7 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
         cbCategoria.removeAllItems();
         cbCategoria.addItem("Entrada");
         cbCategoria.addItem("Principal");
-        cbCategoria.addItem("Postres");
+        cbCategoria.addItem("Postre");
         cbCategoria.addItem("Extras");
         cbHorario.removeAllItems();
         cbHorario.addItem("Mañana");
@@ -304,7 +304,7 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
         cbCategoria.removeAllItems();
         cbCategoria.addItem("Entrada");
         cbCategoria.addItem("Principal");
-        cbCategoria.addItem("Postres");
+        cbCategoria.addItem("Postre");
         cbCategoria.addItem("Extras");
     }//GEN-LAST:event_rbComidaActionPerformed
 
