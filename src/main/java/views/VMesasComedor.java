@@ -90,13 +90,6 @@ public final class VMesasComedor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        lbNombre = new javax.swing.JLabel();
-        labelNombre = new javax.swing.JLabel();
-        lbID = new javax.swing.JLabel();
-        labelID = new javax.swing.JLabel();
-        lbArea = new javax.swing.JLabel();
-        cbMapa = new javax.swing.JComboBox<>();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         btnMesa1 = new javax.swing.JButton();
         lbMesa8 = new javax.swing.JLabel();
@@ -118,74 +111,6 @@ public final class VMesasComedor extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel2.setBackground(new java.awt.Color(255, 102, 0));
-
-        lbNombre.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        lbNombre.setText("Nombre");
-
-        labelNombre.setText("nombre");
-
-        lbID.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        lbID.setText("Id");
-
-        labelID.setText("id");
-
-        lbArea.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        lbArea.setText("Area");
-
-        cbMapa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedor", "Terraza" }));
-        cbMapa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbMapaActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelID)
-                            .addComponent(lbID))
-                        .addGap(41, 41, 41)))
-                .addGap(70, 70, 70))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(lbArea))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNombre)
-                            .addComponent(lbNombre))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(lbNombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelNombre)
-                .addGap(51, 51, 51)
-                .addComponent(lbID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelID)
-                .addGap(80, 80, 80)
-                .addComponent(lbArea)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(559, 0, -1, 491));
 
         jInternalFrame1.setVisible(true);
         jInternalFrame1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -278,12 +203,7 @@ public final class VMesasComedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMesa4ActionPerformed
     
-    public void cbMapaActionPerformed(java.awt.event.ActionEvent evt){
-        if (cbMapa.getSelectedItem().equals("Terraza")) {
-            new VMesasTerraza(listas, index).setVisible(true);
-            this.dispose(); 
-        }
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMesa1;
@@ -293,14 +213,8 @@ public final class VMesasComedor extends javax.swing.JFrame {
     private javax.swing.JButton btnMesa5;
     private javax.swing.JButton btnMesa6;
     private javax.swing.JButton btnMesa7;
-    private javax.swing.JComboBox<String> cbMapa;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel labelID;
-    private javax.swing.JLabel labelNombre;
-    private javax.swing.JLabel lbArea;
-    private javax.swing.JLabel lbID;
     private javax.swing.JLabel lbMesa10;
     private javax.swing.JLabel lbMesa11;
     private javax.swing.JLabel lbMesa5;
@@ -308,6 +222,5 @@ public final class VMesasComedor extends javax.swing.JFrame {
     private javax.swing.JLabel lbMesa7;
     private javax.swing.JLabel lbMesa8;
     private javax.swing.JLabel lbMesa9;
-    private javax.swing.JLabel lbNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,3 @@
-
 package views;
 
 import com.mycompany.casadoloresproject.CListas;
@@ -8,13 +7,28 @@ public class VMenuMesero extends javax.swing.JFrame {
 
     CListas listas = null;
     CMesero mesero;
+    VMesasComedor interMesasComedor;
+    VMesasTerraza interMesasTerraza;
     int index;
+
     public VMenuMesero(CListas listas, int index) {
         initComponents();
+        
+         interMesasComedor = new VMesasComedor(listas, index);
+        deskPaneMesero.add(interMesasComedor);
+
+        interMesasTerraza = new VMesasTerraza(listas, index);
+        deskPaneMesero.add(interMesasTerraza);
+        
         this.listas = listas;
-         this.mesero = listas.meseroList.get(index);
+        this.mesero = listas.meseroList.get(index);
         this.index = index;
         cargarEtiquetas();
+
+        interMesasComedor.setVisible(false);
+        interMesasComedor.setEnabled(false);
+        interMesasTerraza.setVisible(false);
+        interMesasTerraza.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -127,19 +141,25 @@ public class VMenuMesero extends javax.swing.JFrame {
 
     private void cbMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMapaActionPerformed
 
-        if(cbMapa.getSelectedItem().equals("Comedor")){
-            new VMesasComedor(listas, index).setVisible(true);
-            this.dispose();
+        if (cbMapa.getSelectedItem().equals("Comedor")) {
+            interMesasComedor.setVisible(true);
+            interMesasTerraza.setVisible(false);
+            interMesasComedor.setEnabled(true);
+            interMesasTerraza.setEnabled(false);
+        }
+        if(cbMapa.getSelectedItem().equals("Terraza")){
+            interMesasComedor.setVisible(false);
+            interMesasTerraza.setVisible(true);
+            interMesasComedor.setEnabled(false);
+            interMesasTerraza.setEnabled(true);
         }
     }//GEN-LAST:event_cbMapaActionPerformed
-    
-    private void cargarEtiquetas(){
+
+    private void cargarEtiquetas() {
         labelNombre.setText(mesero.getsUsername());
         labelID.setText(String.valueOf(mesero.getiID()));
     }
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

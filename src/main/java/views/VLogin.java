@@ -223,7 +223,7 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "3" -> {
                 index = listas.BuscarIdMesero(Integer.parseInt(username));
-                new VMesasComedor(listas, index).setVisible(true);
+                new VMenuMesero(listas, index).setVisible(true);
                 System.out.println("entro");
                 // Para Lia
             }
