@@ -233,7 +233,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
         String ID = JOptionPane.showInputDialog("Ingresa el ID del Usuario");
 
         switch (ID.substring(0, 1)) {
-            case "1" -> {
+            case "1": {
                 bdID = listas.BuscarIdAdministrador(Integer.parseInt(ID));
                 if (bdID == -1) {
                     showMessageDialogFail(ID);
@@ -242,7 +242,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogSuccess("Usuario");
                 }
             }
-            case "2" -> {
+            case "2": {
                 bdID = listas.BuscarIdBartender(Integer.parseInt(ID));
                 if (bdID == -1) {
                     showMessageDialogFail(ID);
@@ -251,7 +251,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogSuccess("Usuario");
                 }
             }
-            case "3" -> {
+            case "3": {
                 bdID = listas.BuscarIdMesero(Integer.parseInt(ID));
                 if (bdID == -1) {
                     showMessageDialogFail(ID);
@@ -260,7 +260,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogSuccess("Usuario");
                 }
             }
-            case "4" -> {
+            case "4": {
                 bdID = listas.BuscarIdCocinero(Integer.parseInt(ID));
                 if (bdID == -1) {
                     showMessageDialogFail(ID);
@@ -269,7 +269,7 @@ public class vMenuAdministrador extends javax.swing.JFrame {
                     showMessageDialogSuccess("Usuario");
                 }
             }
-            default -> {
+            default: {
             }
         }
     }//GEN-LAST:event_miUserEliminarActionPerformed
