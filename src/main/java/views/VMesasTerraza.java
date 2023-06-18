@@ -79,10 +79,12 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
         btnMesa9 = new javax.swing.JButton();
         btnMesa10 = new javax.swing.JButton();
         btnMesa11 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setPreferredSize(new java.awt.Dimension(910, 570));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbMesa8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -114,6 +116,11 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
         btnMesa9.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa9.setBorderPainted(false);
         btnMesa9.setContentAreaFilled(false);
+        btnMesa9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa9ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 126, 95));
 
         btnMesa10.setBackground(new java.awt.Color(204, 204, 204));
@@ -130,6 +137,10 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btnMesa11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 126, 95));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel1.setText("Area Terraza");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 410, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,6 +164,10 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMesa11ActionPerformed
 
+    private void btnMesa9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMesa9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -162,6 +177,7 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnMesa11;
     private javax.swing.JButton btnMesa8;
     private javax.swing.JButton btnMesa9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbMesa10;
     private javax.swing.JLabel lbMesa11;
