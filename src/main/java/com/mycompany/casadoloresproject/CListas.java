@@ -31,6 +31,8 @@ public class CListas {
         for (int i = 0; i < 1; i++) {
             administradorList.add(new CAdministrador("100", 100));
         }
+        
+        meseroList.add(new CMesero("Rangel", 300));
     }
 
     public int createIdAdministrador() {

@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package views.bartender;
+package views.mesero;
 
+import views.cocinero.*;
 import com.mycompany.casadoloresproject.CListas;
-import entities.CBartender;
-import entities.CBebida;
+import entities.CCocinero;
 import entities.CPlatillo;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,17 +16,17 @@ import javax.swing.table.TableColumn;
  *
  * @author DELL
  */
-public class VBCafeteria extends javax.swing.JInternalFrame {
+public class VMComandas extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VCPrincipales
      */
     CListas listas;
     int index;
-    CBartender bartender;
-    String bebidaType = "Categoria";
+    CCocinero cocinero;
+    String platilloType = "Entrada";
 
-    public VBCafeteria(CListas listas, int index) {
+    public VMComandas(CListas listas, int index) {
         initComponents();
         this.listas = listas;
         this.index = index;
@@ -39,7 +39,7 @@ public class VBCafeteria extends javax.swing.JInternalFrame {
     private void crearFilas() {
         DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
         Object nuevo[] = {temp.getRowCount() + 1, "", ""};
-        int size = listas.getBebidaSize(bebidaType);
+        int size = listas.getPlatilloSize(platilloType);
         for (int i = 0; i < size; i++) {
             temp.addRow(nuevo);
         }
@@ -48,10 +48,10 @@ public class VBCafeteria extends javax.swing.JInternalFrame {
 
     private void mostrarPrincipales() {
         int i = 0;
-        for (CBebida bebida : listas.bebidaList) {
-            if (bebida.getsCategoria().equals(bebidaType)) {
-                jTable1.setValueAt(bebida.getsNombre(), i, 0);
-                jTable1.setValueAt(bebida.isIsStock(), i, 1);
+        for (CPlatillo platillo : listas.platilloList) {
+            if (platillo.getsCategoria().equals(platilloType)) {
+                jTable1.setValueAt(platillo.getsNombre(), i, 0);
+                jTable1.setValueAt(platillo.isIsStock(), i, 1);
                 i++;
             }
         }
@@ -97,8 +97,8 @@ public class VBCafeteria extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(138, 138, 138)
+                .addComponent(btnGuardar))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +120,7 @@ public class VBCafeteria extends javax.swing.JInternalFrame {
             //listas.setIsStockPlatillo(i, platilloType, IsSelected(i, 1, jTable1));
             
             isSelected = IsSelected(i, 1, jTable1);
-            listas.setIsStockBebida(i, bebidaType, isSelected);
+            listas.setIsStockPlatillo(i, platilloType, isSelected);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 

@@ -4,10 +4,6 @@
  */
 package views.bartender;
 
-import views.bartender.VBRefresco;
-import views.bartender.VBTequila;
-import views.bartender.VBNatural;
-import views.bartender.VBCafeteria;
 import com.mycompany.casadoloresproject.CListas;
 import entities.CBartender;
 import views.VLogin;
@@ -24,10 +20,10 @@ public class VMenuBartender extends javax.swing.JFrame {
     CListas listas;
     int index;
     CBartender barman;
-    VBTequila interTequila;
-    VBNatural interNatural;
-    VBRefresco interRefresco;
-    VBCafeteria interCafeteria;
+    VBBebida interTequila;
+    VBBebida interNatural;
+    VBBebida interRefresco;
+    VBBebida interCafeteria;
     
     public VMenuBartender(CListas listas, int index) {
         initComponents();
@@ -36,16 +32,16 @@ public class VMenuBartender extends javax.swing.JFrame {
         this.index = index;
         this.barman = listas.bartenderList.get(index);
         
-        interTequila = new VBTequila(listas,index);
+        interTequila = new VBBebida(listas,index,"Tequila");
         deskPaneCocinero.add(interTequila);
         
-        interNatural = new VBNatural(listas, index);
+        interNatural = new VBBebida(listas, index,"Natural");
         deskPaneCocinero.add(interNatural);
         
-        interRefresco = new VBRefresco(listas, index);
+        interRefresco = new VBBebida(listas, index,"Refresco");
         deskPaneCocinero.add(interRefresco);
         
-        interCafeteria = new VBCafeteria(listas, index);
+        interCafeteria = new VBBebida(listas, index, "Cafeteria");
         deskPaneCocinero.add(interCafeteria);
     }
 

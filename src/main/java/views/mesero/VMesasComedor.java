@@ -197,7 +197,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMesa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Hola Rangel");
+        new VMenuCreateComanda(listas, index).setVisible(true);
     }//GEN-LAST:event_btnMesa1ActionPerformed
 
     private void btnMesa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa4ActionPerformed

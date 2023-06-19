@@ -4,10 +4,6 @@
  */
 package views.cocinero;
 
-import views.cocinero.VCPrincipales;
-import views.cocinero.VCExtras;
-import views.cocinero.VCEntradas;
-import views.cocinero.VCPostres;
 import com.mycompany.casadoloresproject.CListas;
 import entities.CCocinero;
 import views.VLogin;
@@ -24,10 +20,10 @@ public class VMenuCocinero extends javax.swing.JFrame {
     CListas listas;
     int index;
     CCocinero cocinero;
-    VCEntradas interEntradas;
-    VCPrincipales interPrincipales;
-    VCPostres interPostres;
-    VCExtras interExtras;
+    VCPlatillos interEntradas;
+    VCPlatillos interPrincipales;
+    VCPlatillos interPostres;
+    VCPlatillos interExtras;
     
     public VMenuCocinero(CListas listas, int index) {
         initComponents();
@@ -36,16 +32,16 @@ public class VMenuCocinero extends javax.swing.JFrame {
         this.index = index;
         this.cocinero = listas.cocineroList.get(index);
         
-        interEntradas = new VCEntradas(listas,index);
+        interEntradas = new VCPlatillos(listas,index,"Entrada");
         deskPaneCocinero.add(interEntradas);
         
-        interPrincipales = new VCPrincipales(listas, index);
+        interPrincipales = new VCPlatillos(listas, index,"Principal");
         deskPaneCocinero.add(interPrincipales);
         
-        interPostres = new VCPostres(listas, index);
+        interPostres = new VCPlatillos(listas, index,"Postre");
         deskPaneCocinero.add(interPostres);
         
-        interExtras = new VCExtras(listas, index);
+        interExtras = new VCPlatillos(listas, index, "Extras");
         deskPaneCocinero.add(interExtras);
     }
 
