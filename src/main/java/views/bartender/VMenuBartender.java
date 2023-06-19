@@ -2,10 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package views;
+package views.bartender;
 
+import views.bartender.VBRefresco;
+import views.bartender.VBTequila;
+import views.bartender.VBNatural;
+import views.bartender.VBCafeteria;
 import com.mycompany.casadoloresproject.CListas;
 import entities.CBartender;
+import views.VLogin;
 
 /**
  *

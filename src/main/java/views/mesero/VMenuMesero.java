@@ -1,4 +1,4 @@
-package views;
+package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
 import entities.CMesero;
@@ -13,22 +13,19 @@ public class VMenuMesero extends javax.swing.JFrame {
 
     public VMenuMesero(CListas listas, int index) {
         initComponents();
-        
-         interMesasComedor = new VMesasComedor(listas, index);
+
+        interMesasComedor = new VMesasComedor(listas, index);
         deskPaneMesero.add(interMesasComedor);
 
         interMesasTerraza = new VMesasTerraza(listas, index);
         deskPaneMesero.add(interMesasTerraza);
-        
+
         this.listas = listas;
         this.mesero = listas.meseroList.get(index);
         this.index = index;
         cargarEtiquetas();
 
-        interMesasComedor.setVisible(false);
-        interMesasComedor.setEnabled(false);
-        interMesasTerraza.setVisible(false);
-        interMesasTerraza.setEnabled(false);
+        setVisibleView(true, false, false);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,6 +39,7 @@ public class VMenuMesero extends javax.swing.JFrame {
         labelID = new javax.swing.JLabel();
         lbArea = new javax.swing.JLabel();
         cbMapa = new javax.swing.JComboBox<>();
+        btnComandas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         deskPaneMesero = new javax.swing.JDesktopPane();
 
@@ -62,12 +60,14 @@ public class VMenuMesero extends javax.swing.JFrame {
         lbArea.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         lbArea.setText("Area");
 
-        cbMapa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terraza", "Comedor" }));
+        cbMapa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedor", "Terraza" }));
         cbMapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbMapaActionPerformed(evt);
             }
         });
+
+        btnComandas.setText("Comandas");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -75,24 +75,25 @@ public class VMenuMesero extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelID)
-                            .addComponent(lbID))
-                        .addGap(41, 41, 41)))
-                .addGap(757, 757, 757))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(lbArea))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNombre)
-                            .addComponent(lbNombre))))
+                    .addComponent(labelID)
+                    .addComponent(lbID))
+                .addGap(798, 798, 798))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(94, 94, 94)
+                            .addComponent(lbArea))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(81, 81, 81)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelNombre)
+                                .addComponent(lbNombre)))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(71, 71, 71)
+                            .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -110,6 +111,8 @@ public class VMenuMesero extends javax.swing.JFrame {
                 .addComponent(lbArea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(btnComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -152,18 +155,10 @@ public class VMenuMesero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMapaActionPerformed
-
         if (cbMapa.getSelectedItem().equals("Comedor")) {
-            interMesasComedor.setVisible(true);
-            interMesasTerraza.setVisible(false);
-            interMesasComedor.setEnabled(true);
-            interMesasTerraza.setEnabled(false);
-        }
-        if(cbMapa.getSelectedItem().equals("Terraza")){
-            interMesasComedor.setVisible(false);
-            interMesasTerraza.setVisible(true);
-            interMesasComedor.setEnabled(false);
-            interMesasTerraza.setEnabled(true);
+            setVisibleView(true, false, false);
+        }else {
+            setVisibleView(false, true, false);
         }
     }//GEN-LAST:event_cbMapaActionPerformed
 
@@ -172,7 +167,16 @@ public class VMenuMesero extends javax.swing.JFrame {
         labelID.setText(String.valueOf(mesero.getiID()));
     }
 
+    private void setVisibleView(boolean b1, boolean b2, boolean b3) {
+        interMesasComedor.setVisible(b1);
+        interMesasComedor.setEnabled(b1);
+        
+        interMesasTerraza.setVisible(b2);
+        interMesasTerraza.setEnabled(b2);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnComandas;
     private javax.swing.JComboBox<String> cbMapa;
     private javax.swing.JDesktopPane deskPaneMesero;
     private javax.swing.JPanel jPanel1;

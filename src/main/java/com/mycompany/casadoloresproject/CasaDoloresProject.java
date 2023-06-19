@@ -12,7 +12,7 @@ import entities.CMesero;
 import entities.CPlatillo;
 import java.util.ArrayList;
 import views.VLogin;
-import views.vMenuAdministrador;
+import views.administrador.vMenuAdministrador;
 
 /**
  *

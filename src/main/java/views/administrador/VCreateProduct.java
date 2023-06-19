@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package views;
+package views.administrador;
 
 import com.mycompany.casadoloresproject.CListas;
 import entities.CBebida;
@@ -51,7 +51,7 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
         tfNombre = new javax.swing.JTextField();
         tfPrecio = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(608, 616));
 
         jPanel1.setBackground(new java.awt.Color(215, 115, 17));
@@ -101,7 +101,6 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
         rbBibida.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbBibida);
         rbBibida.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        rbBibida.setForeground(new java.awt.Color(0, 0, 0));
         rbBibida.setText("Bebida");
         rbBibida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +120,6 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nuevo Producto");
 
         btnCancelar.setText("Cancelar");
@@ -183,7 +181,7 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addGap(32, 32, 32)
                         .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(rbBibida)
                 .addGap(134, 134, 134))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
