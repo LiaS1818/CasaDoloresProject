@@ -17,7 +17,7 @@ import javax.swing.table.TableColumn;
  *
  * @author DELL
  */
-public class VCPrincipales extends javax.swing.JInternalFrame {
+public class VCExtras extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VCPrincipales
@@ -25,9 +25,9 @@ public class VCPrincipales extends javax.swing.JInternalFrame {
     CListas listas;
     int index;
     CCocinero cocinero;
-    String platilloType = "Principal";
+    String platilloType = "Extras";
 
-    public VCPrincipales(CListas listas, int index) {
+    public VCExtras(CListas listas, int index) {
         initComponents();
         this.listas = listas;
         this.index = index;
@@ -141,7 +141,6 @@ public class VCPrincipales extends javax.swing.JInternalFrame {
         int fila = jTable1.rowAtPoint(evt.getPoint());
         int columna = jTable1.columnAtPoint(evt.getPoint());
         if ((fila > -1) && (columna > -1)) {
-            jTable1.setValueAt(fila + columna, fila, columna);
             System.out.println("Estoy en la posición: " + fila + " y " + columna);
         }
     }//GEN-LAST:event_jTable1MouseClicked
