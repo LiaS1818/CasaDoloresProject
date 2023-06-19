@@ -81,6 +81,11 @@ public class VCPlatillos extends javax.swing.JInternalFrame {
                 "Nombre", "Stock"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         btnGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -123,6 +128,10 @@ public class VCPlatillos extends javax.swing.JInternalFrame {
             listas.setIsStockPlatillo(i, platilloType, isSelected);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
     private boolean IsSelected(int row, int column, JTable table) {
         if (table.getValueAt(row, column) != null) {

@@ -5,6 +5,7 @@
 package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
+import entities.CComanda;
 import entities.CMesero;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -197,7 +198,8 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMesa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa1ActionPerformed
-        new VMenuCreateComanda(listas, index).setVisible(true);
+        mesero.setComanda(new CComanda("00:00",1));
+        new VMenuCreateComanda(listas, index, 1).setVisible(true);
     }//GEN-LAST:event_btnMesa1ActionPerformed
 
     private void btnMesa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa4ActionPerformed

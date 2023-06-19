@@ -14,13 +14,15 @@ public class CComanda {
     private int CuentaFinal;
     private String dateInit;
     private String dateEnd;
+    private int mesaID;
     private ArrayList<CComandaPlatillo> comandaPlatillo;
     private ArrayList<CComandaBebida> comandaBebida;
 
-    public CComanda(int CuentaFinal, String dateInit, String dateEnd) {
-        this.CuentaFinal = CuentaFinal;
+    public CComanda(String dateInit, int mesaID) {
+        this.CuentaFinal = 0;
         this.dateInit = dateInit;
-        this.dateEnd = dateEnd;
+        this.dateEnd = "";
+        this.mesaID = mesaID;
         this.comandaPlatillo = new ArrayList();
         this.comandaBebida = new ArrayList();
     }
@@ -32,6 +34,16 @@ public class CComanda {
     public void setCuentaFinal(int CuentaFinal) {
         this.CuentaFinal = CuentaFinal;
     }
+
+    public int getMesaID() {
+        return mesaID;
+    }
+
+    public void setMesaID(int mesaID) {
+        this.mesaID = mesaID;
+    }
+    
+    
 
     public String getDateInit() {
         return dateInit;
