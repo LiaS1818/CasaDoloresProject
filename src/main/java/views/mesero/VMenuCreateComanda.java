@@ -5,8 +5,10 @@
 package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
+import entities.CComanda;
 import entities.CMesero;
 import entities.CPlatillo;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +23,7 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
     CListas listas;
     int index;
     CMesero mesero;
+    CComanda comanda;
     String selection = "";
     int mesaID;
 
@@ -28,6 +31,8 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
     VMComandaPlatillo cmdPPrincipal;
     VMComandaPlatillo cmdPPostre;
     VMComandaPlatillo cmdPExtras;
+    
+    VMReviewComanda rwComanda;
 
     public VMenuCreateComanda(CListas listas, int index, int mesaID) {
         initComponents();
@@ -35,21 +40,39 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         this.index = index;
         this.mesaID = mesaID;
         mesero = listas.meseroList.get(index);
+        for(CComanda comandaLocal : mesero.getComandas()){
+            if(comandaLocal.getMesaID() == mesaID){
+                this.comanda = comandaLocal;
+            }
+        }
 
         cbCategoria.setVisible(false);
         cbCategoria.setEnabled(false);
 
-        cmdPEntrada = new VMComandaPlatillo(listas, index, "Entrada");
-        cmdPPrincipal = new VMComandaPlatillo(listas, index, "Principal");
-        cmdPPostre = new VMComandaPlatillo(listas, index, "Postre");
-        cmdPExtras = new VMComandaPlatillo(listas, index, "Extras");
+        cmdPEntrada = new VMComandaPlatillo(listas, index, "Entrada", this);
+        cmdPPrincipal = new VMComandaPlatillo(listas, index, "Principal", this);
+        cmdPPostre = new VMComandaPlatillo(listas, index, "Postre", this);
+        cmdPExtras = new VMComandaPlatillo(listas, index, "Extras", this);
 
-        deskPaneReview.add(cmdPEntrada);
-        deskPaneReview.add(cmdPPrincipal);
-        deskPaneReview.add(cmdPPostre);
-        deskPaneReview.add(cmdPExtras);
+        //comanda = listas.getComandaMesa(mesaID);
+        
+        rwComanda = new VMReviewComanda(listas, mesero, comanda);
+        
+        deskPaneComanda.add(cmdPEntrada);
+        deskPaneComanda.add(cmdPPrincipal);
+        deskPaneComanda.add(cmdPPostre);
+        deskPaneComanda.add(cmdPExtras);
+        
+        deskPaneReview.add(rwComanda);
+        rwComanda.setVisible(true);
     }
 
+    public void putPlatilloComanda(int platilloIndex){
+        System.out.println(listas.platilloList.get(platilloIndex).getsNombre());
+        String numPlatillos = JOptionPane.showInputDialog("Ingresa Numero de platillos");
+        
+        rwComanda.putPlatillo(platilloIndex, Integer.parseInt(numPlatillos));
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,8 +81,8 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         btnPlatillo = new javax.swing.JButton();
         btnBebida = new javax.swing.JButton();
         cbCategoria = new javax.swing.JComboBox<>();
-        deskPaneReview = new javax.swing.JDesktopPane();
         deskPaneComanda = new javax.swing.JDesktopPane();
+        deskPaneReview = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,25 +110,25 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout deskPaneReviewLayout = new javax.swing.GroupLayout(deskPaneReview);
-        deskPaneReview.setLayout(deskPaneReviewLayout);
-        deskPaneReviewLayout.setHorizontalGroup(
-            deskPaneReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        deskPaneReviewLayout.setVerticalGroup(
-            deskPaneReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout deskPaneComandaLayout = new javax.swing.GroupLayout(deskPaneComanda);
         deskPaneComanda.setLayout(deskPaneComandaLayout);
         deskPaneComandaLayout.setHorizontalGroup(
             deskPaneComandaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         deskPaneComandaLayout.setVerticalGroup(
             deskPaneComandaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 339, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout deskPaneReviewLayout = new javax.swing.GroupLayout(deskPaneReview);
+        deskPaneReview.setLayout(deskPaneReviewLayout);
+        deskPaneReviewLayout.setHorizontalGroup(
+            deskPaneReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 345, Short.MAX_VALUE)
+        );
+        deskPaneReviewLayout.setVerticalGroup(
+            deskPaneReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -123,10 +146,10 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
                         .addGap(103, 103, 103)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(deskPaneReview, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(deskPaneComanda, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, 361, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskPaneComanda))
+                .addComponent(deskPaneReview))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,9 +163,9 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskPaneReview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(deskPaneComanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(deskPaneComanda)
+            .addComponent(deskPaneReview)
         );
 
         pack();

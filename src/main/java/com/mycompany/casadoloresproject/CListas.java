@@ -8,6 +8,7 @@ import entities.CAdministrador;
 import entities.CBartender;
 import entities.CBebida;
 import entities.CCocinero;
+import entities.CComanda;
 import entities.CMesero;
 import entities.CPlatillo;
 import java.util.ArrayList;
@@ -31,8 +32,9 @@ public class CListas {
         for (int i = 0; i < 1; i++) {
             administradorList.add(new CAdministrador("100", 100));
         }
-        
+
         meseroList.add(new CMesero("Rangel", 300));
+        meseroList.add(new CMesero("Rangel", 301));
     }
 
     public int createIdAdministrador() {
@@ -250,7 +252,7 @@ public class CListas {
         }
         return index;
     }
-    
+
     public int getBebidaSize(String bebidaType) {
         int index = 0;
         for (CBebida bebida : bebidaList) {
@@ -259,5 +261,16 @@ public class CListas {
             }
         }
         return index;
+    }
+
+    public int getComandaIndex(CMesero mesero, int mesaID) {
+        int index = 0;
+        for (CComanda comanda : mesero.getComandas()) {
+            if (mesaID == comanda.getMesaID()) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 }

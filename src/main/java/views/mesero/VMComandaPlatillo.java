@@ -20,12 +20,14 @@ public class VMComandaPlatillo extends javax.swing.JInternalFrame {
     CListas listas;
     int index;
     String platilloType;
+    VMenuCreateComanda comanda;
     
-    public VMComandaPlatillo(CListas listas, int index, String platilloType) {
+    public VMComandaPlatillo(CListas listas, int index, String platilloType, VMenuCreateComanda comanda) {
         initComponents();
         this.listas = listas;
         this.index = index;
         this.platilloType = platilloType;
+        this.comanda = comanda;
         
         createRows();
         fillRows();
@@ -111,7 +113,8 @@ public class VMComandaPlatillo extends javax.swing.JInternalFrame {
         int fila = jTable1.rowAtPoint(evt.getPoint());
         //int columna = jTable1.columnAtPoint(evt.getPoint());
         if ((fila > -1)) {
-            
+            int comidaIndex = listas.buscarComida((String) jTable1.getValueAt(fila, 0));
+            comanda.putPlatilloComanda(comidaIndex);
         }
     }//GEN-LAST:event_jTable1MouseClicked
 

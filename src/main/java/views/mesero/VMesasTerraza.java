@@ -5,6 +5,7 @@
 package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
+import entities.CComanda;
 import entities.CMesero;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -23,13 +24,15 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
    CListas listas;
     CMesero mesero;
     int index;
+    VMenuMesero menu;
     
-    public VMesasTerraza(CListas listas, int index) {
+    public VMesasTerraza(CListas listas, int index, VMenuMesero menu) {
       
         initComponents();
         cargarImagenMesas();
         this.index = index;
         this.listas = listas;
+        this.menu = menu;
     }
     public void cargarImagenMesas(){
         
@@ -59,7 +62,37 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
         
     }
     
+private void enableTables() {
+        for (CMesero meseroLocal : listas.meseroList) {
+            if (meseroLocal.getiID() != mesero.getiID()) {
+                for (CComanda comanda : meseroLocal.getComandas()) {
+                    switch (comanda.getMesaID()) {
+                        case 8: {
+                            btnMesa8.setVisible(false);
+                            btnMesa8.setEnabled(false);
+                            break;
+                        }
+                        case 9: {
+                            btnMesa9.setVisible(false);
+                            btnMesa9.setEnabled(false);
+                            break;
+                        }
+                        case 10: {
+                            btnMesa10.setVisible(false);
+                            btnMesa10.setEnabled(false);
+                            break;
+                        }
+                        case 11: {
+                            btnMesa11.setVisible(false);
+                            btnMesa11.setEnabled(false);
+                            break;
+                        }
+                    }
+                }
+            }
 
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

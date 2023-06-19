@@ -2,6 +2,7 @@ package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
 import entities.CMesero;
+import views.VLogin;
 
 public class VMenuMesero extends javax.swing.JFrame {
 
@@ -14,10 +15,10 @@ public class VMenuMesero extends javax.swing.JFrame {
     public VMenuMesero(CListas listas, int index) {
         initComponents();
 
-        interMesasComedor = new VMesasComedor(listas, index);
+        interMesasComedor = new VMesasComedor(listas, index, this);
         deskPaneMesero.add(interMesasComedor);
 
-        interMesasTerraza = new VMesasTerraza(listas, index);
+        interMesasTerraza = new VMesasTerraza(listas, index, this);
         deskPaneMesero.add(interMesasTerraza);
 
         this.listas = listas;
@@ -40,6 +41,7 @@ public class VMenuMesero extends javax.swing.JFrame {
         lbArea = new javax.swing.JLabel();
         cbMapa = new javax.swing.JComboBox<>();
         btnComandas = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         deskPaneMesero = new javax.swing.JDesktopPane();
 
@@ -69,6 +71,13 @@ public class VMenuMesero extends javax.swing.JFrame {
 
         btnComandas.setText("Comandas");
 
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -80,20 +89,21 @@ public class VMenuMesero extends javax.swing.JFrame {
                     .addComponent(lbID))
                 .addGap(798, 798, 798))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(94, 94, 94)
-                            .addComponent(lbArea))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(81, 81, 81)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelNombre)
-                                .addComponent(lbNombre)))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(71, 71, 71)
-                            .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(lbArea))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNombre)
+                            .addComponent(lbNombre)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSalir))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -111,8 +121,10 @@ public class VMenuMesero extends javax.swing.JFrame {
                 .addComponent(lbArea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbMapa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
+                .addGap(41, 41, 41)
                 .addComponent(btnComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(btnSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -162,6 +174,12 @@ public class VMenuMesero extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbMapaActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        new VLogin(listas).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     private void cargarEtiquetas() {
         labelNombre.setText(mesero.getsUsername());
         labelID.setText(String.valueOf(mesero.getiID()));
@@ -177,6 +195,7 @@ public class VMenuMesero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComandas;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbMapa;
     private javax.swing.JDesktopPane deskPaneMesero;
     private javax.swing.JPanel jPanel1;
