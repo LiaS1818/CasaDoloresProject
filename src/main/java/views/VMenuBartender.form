@@ -26,11 +26,11 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="btnPostres" max="32767" attributes="0"/>
-                      <Component id="btnEntradas" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnRefresco" max="32767" attributes="0"/>
+                      <Component id="btnNatural" alignment="1" max="32767" attributes="0"/>
                       <Component id="btnComandas" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnExtras" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
-                      <Component id="btnPrincipales1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnCafeteria" alignment="0" min="-2" pref="281" max="-2" attributes="0"/>
+                      <Component id="btnTequila" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
@@ -42,29 +42,29 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="338" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="95" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="212" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="31" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btnComandas" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnPrincipales1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="btnTequila" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnEntradas" min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="btnNatural" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnPostres" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnRefresco" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnExtras" min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="btnCafeteria" min="-2" pref="58" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
@@ -81,23 +81,23 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cocina"/>
+        <Property name="text" type="java.lang.String" value="Barra de Bebidas"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnEntradas">
+    <Component class="javax.swing.JButton" name="btnNatural">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Entradas"/>
+        <Property name="text" type="java.lang.String" value="Natural"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntradasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNaturalActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnPostres">
+    <Component class="javax.swing.JButton" name="btnRefresco">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Postres"/>
+        <Property name="text" type="java.lang.String" value="Refresco"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPostresActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefrescoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnComandas">
@@ -108,12 +108,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComandasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnExtras">
+    <Component class="javax.swing.JButton" name="btnCafeteria">
       <Properties>
         <Property name="text" type="java.lang.String" value="Extras"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExtrasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCafeteriaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
@@ -126,7 +126,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -136,12 +136,12 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JButton" name="btnPrincipales1">
+    <Component class="javax.swing.JButton" name="btnTequila">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Principales"/>
+        <Property name="text" type="java.lang.String" value="Tequila"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrincipales1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTequilaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

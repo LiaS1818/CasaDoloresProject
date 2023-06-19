@@ -5,18 +5,7 @@
 package views;
 
 import com.mycompany.casadoloresproject.CListas;
-import com.mycompany.casadoloresproject.CasaDoloresProject;
-import entities.CAdministrador;
-import entities.CBartender;
-import entities.CBebida;
-import entities.CCocinero;
-import entities.CMesero;
-import entities.CPlatillo;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
-import org.xml.sax.Attributes;
-
 /**
  *
  * @author DELL
@@ -220,7 +209,7 @@ public class VLogin extends javax.swing.JFrame {
             }
             case "2": {
                 index = listas.BuscarIdBartender(Integer.parseInt(username));
-                new VMenuMesero(listas, index).setVisible(true);
+                new VMenuBartender(listas, index).setVisible(true);
             break;
             }
             case "3": {

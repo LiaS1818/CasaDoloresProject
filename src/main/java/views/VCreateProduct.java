@@ -293,9 +293,9 @@ public class VCreateProduct extends javax.swing.JInternalFrame {
     private void rbBibidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBibidaActionPerformed
         // TODO add your handling code here:
         cbCategoria.removeAllItems();
-        cbCategoria.addItem("Tequilas");
-        cbCategoria.addItem("Naturales");
-        cbCategoria.addItem("Refrescos");
+        cbCategoria.addItem("Tequila");
+        cbCategoria.addItem("Natural");
+        cbCategoria.addItem("Refresco");
         cbCategoria.addItem("Cafeteria");
     }//GEN-LAST:event_rbBibidaActionPerformed
 

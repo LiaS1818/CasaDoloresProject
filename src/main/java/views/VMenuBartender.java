@@ -5,43 +5,43 @@
 package views;
 
 import com.mycompany.casadoloresproject.CListas;
-import entities.CCocinero;
+import entities.CBartender;
 
 /**
  *
  * @author DELL
  */
-public class VMenuCocinero extends javax.swing.JFrame {
+public class VMenuBartender extends javax.swing.JFrame {
 
     /**
      * Creates new form VMenuCocinero
      */
     CListas listas;
     int index;
-    CCocinero cocinero;
-    VCEntradas interEntradas;
-    VCPrincipales interPrincipales;
-    VCPostres interPostres;
-    VCExtras interExtras;
+    CBartender barman;
+    VBTequila interTequila;
+    VBNatural interNatural;
+    VBRefresco interRefresco;
+    VBCafeteria interCafeteria;
     
-    public VMenuCocinero(CListas listas, int index) {
+    public VMenuBartender(CListas listas, int index) {
         initComponents();
         this.listas = listas;
         this.setLocationRelativeTo(null);
         this.index = index;
-        this.cocinero = listas.cocineroList.get(index);
+        this.barman = listas.bartenderList.get(index);
         
-        interEntradas = new VCEntradas(listas,index);
-        deskPaneCocinero.add(interEntradas);
+        interTequila = new VBTequila(listas,index);
+        deskPaneCocinero.add(interTequila);
         
-        interPrincipales = new VCPrincipales(listas, index);
-        deskPaneCocinero.add(interPrincipales);
+        interNatural = new VBNatural(listas, index);
+        deskPaneCocinero.add(interNatural);
         
-        interPostres = new VCPostres(listas, index);
-        deskPaneCocinero.add(interPostres);
+        interRefresco = new VBRefresco(listas, index);
+        deskPaneCocinero.add(interRefresco);
         
-        interExtras = new VCExtras(listas, index);
-        deskPaneCocinero.add(interExtras);
+        interCafeteria = new VBCafeteria(listas, index);
+        deskPaneCocinero.add(interCafeteria);
     }
 
     @SuppressWarnings("unchecked")
@@ -49,30 +49,30 @@ public class VMenuCocinero extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnEntradas = new javax.swing.JButton();
-        btnPostres = new javax.swing.JButton();
+        btnNatural = new javax.swing.JButton();
+        btnRefresco = new javax.swing.JButton();
         btnComandas = new javax.swing.JButton();
-        btnExtras = new javax.swing.JButton();
+        btnCafeteria = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         deskPaneCocinero = new javax.swing.JDesktopPane();
-        btnPrincipales1 = new javax.swing.JButton();
+        btnTequila = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setText("Cocina");
+        jLabel1.setText("Barra de Bebidas");
 
-        btnEntradas.setText("Entradas");
-        btnEntradas.addActionListener(new java.awt.event.ActionListener() {
+        btnNatural.setText("Natural");
+        btnNatural.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntradasActionPerformed(evt);
+                btnNaturalActionPerformed(evt);
             }
         });
 
-        btnPostres.setText("Postres");
-        btnPostres.addActionListener(new java.awt.event.ActionListener() {
+        btnRefresco.setText("Refresco");
+        btnRefresco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPostresActionPerformed(evt);
+                btnRefrescoActionPerformed(evt);
             }
         });
 
@@ -83,10 +83,10 @@ public class VMenuCocinero extends javax.swing.JFrame {
             }
         });
 
-        btnExtras.setText("Extras");
-        btnExtras.addActionListener(new java.awt.event.ActionListener() {
+        btnCafeteria.setText("Extras");
+        btnCafeteria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExtrasActionPerformed(evt);
+                btnCafeteriaActionPerformed(evt);
             }
         });
 
@@ -100,17 +100,17 @@ public class VMenuCocinero extends javax.swing.JFrame {
         deskPaneCocinero.setLayout(deskPaneCocineroLayout);
         deskPaneCocineroLayout.setHorizontalGroup(
             deskPaneCocineroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 442, Short.MAX_VALUE)
         );
         deskPaneCocineroLayout.setVerticalGroup(
             deskPaneCocineroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 434, Short.MAX_VALUE)
         );
 
-        btnPrincipales1.setText("Principales");
-        btnPrincipales1.addActionListener(new java.awt.event.ActionListener() {
+        btnTequila.setText("Tequila");
+        btnTequila.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrincipales1ActionPerformed(evt);
+                btnTequilaActionPerformed(evt);
             }
         });
 
@@ -121,11 +121,11 @@ public class VMenuCocinero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnPostres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEntradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRefresco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNatural, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnComandas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExtras, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPrincipales1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnCafeteria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTequila, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -133,27 +133,27 @@ public class VMenuCocinero extends javax.swing.JFrame {
                 .addComponent(deskPaneCocinero)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(338, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(302, 302, 302))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(253, 253, 253))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPrincipales1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTequila, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEntradas, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNatural, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPostres, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRefresco, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnExtras, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCafeteria, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(deskPaneCocinero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -164,56 +164,58 @@ public class VMenuCocinero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnComandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComandasActionPerformed
-       setStateInternalFrames(false, false, false, false,true);
+       setStateInternalFrames(false, false, false, false, true);
   
     }//GEN-LAST:event_btnComandasActionPerformed
 
-    private void btnEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradasActionPerformed
-        setStateInternalFrames(false, true, false, false,false);
-    }//GEN-LAST:event_btnEntradasActionPerformed
+    private void btnNaturalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNaturalActionPerformed
+        setStateInternalFrames(false, true, false, false, false);
+    }//GEN-LAST:event_btnNaturalActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new VLogin(listas).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnPostresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostresActionPerformed
-        setStateInternalFrames(false, false, true, false,false);
-    }//GEN-LAST:event_btnPostresActionPerformed
+    private void btnRefrescoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefrescoActionPerformed
+        setStateInternalFrames(false, false, true, false, false);
+    }//GEN-LAST:event_btnRefrescoActionPerformed
 
-    private void btnExtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtrasActionPerformed
+    private void btnCafeteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCafeteriaActionPerformed
         // TODO add your handling code here:
-        setStateInternalFrames(false, false, false, true,false);
-    }//GEN-LAST:event_btnExtrasActionPerformed
+        setStateInternalFrames(false, false, false, true, false);
+    }//GEN-LAST:event_btnCafeteriaActionPerformed
 
-    private void btnPrincipales1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrincipales1ActionPerformed
+    private void btnTequilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTequilaActionPerformed
         // TODO add your handling code here:
-        setStateInternalFrames(true, false, false, false,false);
-    }//GEN-LAST:event_btnPrincipales1ActionPerformed
+        setStateInternalFrames(true, false, false, false, false);
+    }//GEN-LAST:event_btnTequilaActionPerformed
 
     private void setStateInternalFrames(boolean b1, boolean b2, boolean b3, boolean b4, boolean b5){
-        interPrincipales.setVisible(b1);
-        interPrincipales.setEnabled(b1);
+        interNatural.setVisible(b1);
+        interNatural.setEnabled(b1);
         
-        interEntradas.setVisible(b2);
-        interEntradas.setEnabled(b2);
+        interTequila.setVisible(b2);
+        interTequila.setEnabled(b2);
         
-        interPostres.setVisible(b3);
-        interPostres.setEnabled(b3);
+        interRefresco.setVisible(b3);
+        interRefresco.setEnabled(b3);
         
-        interExtras.setVisible(b4);
-        interExtras.setEnabled(b4);
+        interCafeteria.setVisible(b4);
+        interCafeteria.setEnabled(b4);
+        
+        
     }
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCafeteria;
     private javax.swing.JButton btnComandas;
-    private javax.swing.JButton btnEntradas;
-    private javax.swing.JButton btnExtras;
-    private javax.swing.JButton btnPostres;
-    private javax.swing.JButton btnPrincipales1;
+    private javax.swing.JButton btnNatural;
+    private javax.swing.JButton btnRefresco;
+    private javax.swing.JButton btnTequila;
     private javax.swing.JDesktopPane deskPaneCocinero;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

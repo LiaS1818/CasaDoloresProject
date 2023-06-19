@@ -103,13 +103,10 @@ public class VCPrincipales extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 213, Short.MAX_VALUE))
+                .addGap(126, 126, 126)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +138,6 @@ public class VCPrincipales extends javax.swing.JInternalFrame {
         int fila = jTable1.rowAtPoint(evt.getPoint());
         int columna = jTable1.columnAtPoint(evt.getPoint());
         if ((fila > -1) && (columna > -1)) {
-            jTable1.setValueAt(fila + columna, fila, columna);
             System.out.println("Estoy en la posición: " + fila + " y " + columna);
         }
     }//GEN-LAST:event_jTable1MouseClicked

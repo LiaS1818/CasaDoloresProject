@@ -5,7 +5,8 @@
 package views;
 
 import com.mycompany.casadoloresproject.CListas;
-import entities.CCocinero;
+import entities.CBartender;
+import entities.CBebida;
 import entities.CPlatillo;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -15,17 +16,17 @@ import javax.swing.table.TableColumn;
  *
  * @author DELL
  */
-public class VCPostres extends javax.swing.JInternalFrame {
+public class VBTequila extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VCPrincipales
      */
     CListas listas;
     int index;
-    CCocinero cocinero;
-    String platilloType = "Postre";
+    CBartender bartender;
+    String bebidaType = "Tequila";
 
-    public VCPostres(CListas listas, int index) {
+    public VBTequila(CListas listas, int index) {
         initComponents();
         this.listas = listas;
         this.index = index;
@@ -39,7 +40,7 @@ public class VCPostres extends javax.swing.JInternalFrame {
     private void crearFilas() {
         DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
         Object nuevo[] = {temp.getRowCount() + 1, "", ""};
-        int size = listas.getPlatilloSize(platilloType);
+        int size = listas.getBebidaSize(bebidaType);
         System.out.println(size);
         for (int i = 0; i < size; i++) {
             temp.addRow(nuevo);
@@ -48,11 +49,10 @@ public class VCPostres extends javax.swing.JInternalFrame {
 
     private void mostrarPrincipales() {
         int i = 0;
-
-        for (CPlatillo platillo : listas.platilloList) {
-            if (platillo.getsCategoria().equals(platilloType)) {
-                jTable1.setValueAt(platillo.getsNombre(), i, 0);
-                jTable1.setValueAt(platillo.isIsStock(), i, 1);
+        for (CBebida bebida : listas.bebidaList) {
+            if (bebida.getsCategoria().equals(bebidaType)) {
+                jTable1.setValueAt(bebida.getsNombre(), i, 0);
+                jTable1.setValueAt(bebida.isIsStock(), i, 1);
                 i++;
             }
         }
@@ -82,6 +82,11 @@ public class VCPostres extends javax.swing.JInternalFrame {
                 "Nombre", "Stock"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         btnGuardar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -98,16 +103,16 @@ public class VCPostres extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(btnGuardar))
+                .addGap(118, 118, 118)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnGuardar)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,14 +122,23 @@ public class VCPostres extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         for (int i = 0; i < jTable1.getRowCount(); i++) {
             if (IsSelected(i, 1, jTable1)) {
-                listas.setIsStockPlatillo(i, platilloType, true);
+                listas.setIsStockBebida(i, bebidaType, true);
                 System.out.println(i);
             } else {
-                listas.setIsStockPlatillo(i, platilloType, false);
+                listas.setIsStockBebida(i, bebidaType, false);
                 System.out.println("False: " + i);
             }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int fila = jTable1.rowAtPoint(evt.getPoint());
+        int columna = jTable1.columnAtPoint(evt.getPoint());
+        if ((fila > -1) && (columna > -1)) {
+            System.out.println("Estoy en la posición: " + fila + " y " + columna);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     private boolean IsSelected(int row, int column, JTable table) {
         if (table.getValueAt(row, column) != null) {

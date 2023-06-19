@@ -248,4 +248,14 @@ public class CListas {
         }
         return index;
     }
+    
+    public int getBebidaSize(String bebidaType) {
+        int index = 0;
+        for (CBebida bebida : bebidaList) {
+            if (bebida.getsCategoria().equals(bebidaType)) {
+                index++;
+            }
+        }
+        return index;
+    }
 }
