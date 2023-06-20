@@ -273,4 +273,13 @@ public class CListas {
         }
         return -1;
     }
+
+    public boolean isTableActive(CMesero mesero, int mesaID) {
+        for(CComanda comanda : mesero.getComandas()){
+            if(comanda.getMesaID() == mesaID && comanda.isStatus()){
+                return true;
+            }
+        }
+        return false;
+    }
 }

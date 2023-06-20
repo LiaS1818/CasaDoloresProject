@@ -29,6 +29,8 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         this.listas = listas;
         this.index = listas.getComandaIndex(mesero, comanda.getMesaID());
         this.comanda = comanda;
+        
+        fillTable();
     }
 
     private void fillTable() {
@@ -40,8 +42,9 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
             temp.addRow(nuevo);
         }
 
+        int size1 = comanda.getComandaBebida().size();
         DefaultTableModel temp1 = (DefaultTableModel) tableBebida.getModel();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size1; i++) {
             Object nuevo[] = {comanda.getComandaBebida().get(i).getBebida().getsNombre(), comanda.getComandaBebida().get(i).getQuantity()};
             temp.addRow(nuevo);
         }

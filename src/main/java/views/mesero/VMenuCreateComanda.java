@@ -55,6 +55,9 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
             }
         }
         
+        cbCategoria.setVisible(false);
+        cbCategoria.setEnabled(false);
+        
         this.menu = menu;
 
         cmdPEntrada = new VMComandaPlatillo(listas, index, "Entrada", this);
@@ -82,6 +85,8 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
 
         deskPaneReview.add(rwComanda);
         rwComanda.setVisible(true);
+        
+        setVisibleViews(false, false, false, false, false, false, false, false);
     }
 
     public void putPlatilloComanda(int platilloIndex) {
@@ -231,6 +236,8 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         correctorErrorComboBox = 0;
 
         cbCategoria.removeAllItems();
+        cbCategoria.setVisible(true);
+        cbCategoria.setEnabled(true);
         correctorErrorComboBox = 1;
         cbCategoria.addItem("Tequila");
         cbCategoria.addItem("Natural");
@@ -243,6 +250,8 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         // TODO add your handling code here:
         correctorErrorComboBox = 0;
         cbCategoria.removeAllItems();
+        cbCategoria.setVisible(true);
+        cbCategoria.setEnabled(true);
         correctorErrorComboBox = 1;
         cbCategoria.addItem("Entrada");
         cbCategoria.addItem("Principal");

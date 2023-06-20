@@ -37,7 +37,7 @@ public class VMComandaBebida extends javax.swing.JInternalFrame {
     private void createRows(){
         DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
         Object nuevo[] = {""};
-        int size = listas.getPlatilloSize(bebidaType);
+        int size = listas.getBebidaSize(bebidaType);
         for (int i = 0; i < size; i++) {
             temp.addRow(nuevo);
         }

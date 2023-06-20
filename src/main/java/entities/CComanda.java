@@ -15,6 +15,7 @@ public class CComanda {
     private String dateInit;
     private String dateEnd;
     private int mesaID;
+    private boolean status;
     private ArrayList<CComandaPlatillo> comandaPlatillo;
     private ArrayList<CComandaBebida> comandaBebida;
 
@@ -23,6 +24,7 @@ public class CComanda {
         this.dateInit = dateInit;
         this.dateEnd = "";
         this.mesaID = mesaID;
+        status = true;
         this.comandaPlatillo = new ArrayList();
         this.comandaBebida = new ArrayList();
     }
@@ -75,6 +77,14 @@ public class CComanda {
 
     public void setComandaBebida(CComandaBebida comandaBebida) {
         this.comandaBebida.add(comandaBebida);
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
     
