@@ -55,32 +55,34 @@ public class VCreateUser extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(215, 115, 17));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel2.setText("Nombre:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
-        jPanel1.add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 110, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        tfName.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jPanel1.add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 300, 40));
 
         rbAdministrador.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbAdministrador);
-        rbAdministrador.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        rbAdministrador.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         rbAdministrador.setText("Administrador");
         jPanel1.add(rbAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         rbMesero.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbMesero);
-        rbMesero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        rbMesero.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         rbMesero.setText("Mesero");
         jPanel1.add(rbMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         rbBarMan.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbBarMan);
-        rbBarMan.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        rbBarMan.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         rbBarMan.setText("BarMan");
         jPanel1.add(rbBarMan, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         rbCocinero.setBackground(new java.awt.Color(215, 115, 17));
         buttonGroup1.add(rbCocinero);
-        rbCocinero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        rbCocinero.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         rbCocinero.setText("Cocinero");
         jPanel1.add(rbCocinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
@@ -91,10 +93,11 @@ public class VCreateUser extends javax.swing.JInternalFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 102, -1));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 140, 60));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText("Nuevo Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 620));
 
