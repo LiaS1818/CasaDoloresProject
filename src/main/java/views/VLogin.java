@@ -231,7 +231,7 @@ public class VLogin extends javax.swing.JFrame {
  
             }
         }
-        //this.dispose();
+        this.dispose();
 
 
     }//GEN-LAST:event_btnEntrarActionPerformed

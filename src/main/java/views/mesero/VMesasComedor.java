@@ -200,11 +200,11 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa7ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 126, 95));
+        jPanel1.add(btnMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 126, 95));
 
         lbMesa10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa10.setText("4");
-        jPanel1.add(lbMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 10, -1));
+        jPanel1.add(lbMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 10, -1));
 
         btnMesa2.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa2.setBorderPainted(false);
@@ -214,7 +214,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 126, 95));
+        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 126, 95));
 
         btnMesa5.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa5.setBorderPainted(false);
@@ -242,7 +242,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
 
         lbMesa7.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa7.setText("7");
-        jPanel1.add(lbMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 10, -1));
+        jPanel1.add(lbMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, 10, -1));
 
         lbMesa6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa6.setText("6");
@@ -256,7 +256,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa4ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 126, 95));
+        jPanel1.add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 126, 95));
 
         lbMesa9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa9.setText("2");
