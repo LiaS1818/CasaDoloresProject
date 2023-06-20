@@ -204,6 +204,11 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         if ((fila > -1) && (columna > -1)) {
             int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el platillo?");
             if(input==0){
+                String nombre = (String) tablePlatillo.getValueAt(fila, 0);
+                int indexPlatillo = listas.buscarComida(nombre);
+                int cuenta = listas.platilloList.get(indexPlatillo).getiPrecio() * (Integer) tablePlatillo.getValueAt(fila, 1);
+                System.out.println("Cuenta Actual " + cuenta);
+                comanda.subCuentaFinal(cuenta);
                 comanda.getComandaPlatillo().remove(fila);
                 DefaultTableModel temp = (DefaultTableModel) tablePlatillo.getModel();
                 temp.removeRow(fila);
@@ -218,8 +223,11 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         if ((fila > -1) && (columna > -1)) {
             int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la Bebida?");
             if(input==0){
-                //int cuenta = listas.bebidaList.get(indexBebida).getiPrecio() * comanda.getComandaBebida().get(size).getQuantity();
-                //comanda.setCuentaFinal(cuenta);
+                String nombre = (String) tableBebida.getValueAt(fila, 0);
+                int indexBebida = listas.buscarBebida(nombre);
+                int cuenta = listas.bebidaList.get(indexBebida).getiPrecio() * (Integer) tableBebida.getValueAt(fila, 1);
+                System.out.println("Cuenta Actual " + cuenta);
+                comanda.subCuentaFinal(cuenta);
                 comanda.getComandaBebida().remove(fila);
                 DefaultTableModel temp = (DefaultTableModel) tableBebida.getModel();
                 temp.removeRow(fila);
