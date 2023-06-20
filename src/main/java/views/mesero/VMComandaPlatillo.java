@@ -34,7 +34,6 @@ public class VMComandaPlatillo extends javax.swing.JInternalFrame {
 
     private void createRows(){
         DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
-        
         for (CPlatillo platillo : listas.platilloList) {
             if (platillo.getsCategoria().equals(platilloType) && platillo.isIsStock()) {
                 Object nuevo[] = {platillo.getsNombre()};

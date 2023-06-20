@@ -9,6 +9,7 @@ import entities.CComanda;
 import entities.CComandaBebida;
 import entities.CComandaPlatillo;
 import entities.CMesero;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -56,6 +57,9 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         int size = comanda.getComandaPlatillo().size() - 1;
         Object nuevo[] = {comanda.getComandaPlatillo().get(size).getPlatillo().getsNombre(), comanda.getComandaPlatillo().get(size).getQuantity()};
         temp.addRow(nuevo);
+        
+        int cuenta = listas.platilloList.get(indexPlatillo).getiPrecio() * comanda.getComandaPlatillo().get(size).getQuantity();
+        comanda.setCuentaFinal(cuenta);
     }
 
     public void putBebida(int indexBebida, int numPlatillos) {
@@ -64,6 +68,9 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         int size = comanda.getComandaBebida().size() - 1;
         Object nuevo[] = {comanda.getComandaBebida().get(size).getBebida().getsNombre(), comanda.getComandaBebida().get(size).getQuantity()};
         temp.addRow(nuevo);
+        
+        int cuenta = listas.bebidaList.get(indexBebida).getiPrecio() * comanda.getComandaBebida().get(size).getQuantity();
+        comanda.setCuentaFinal(cuenta);
     }
 
     /**
@@ -98,7 +105,7 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tablePlatillo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,6 +123,11 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
+        tablePlatillo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePlatilloMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablePlatillo);
 
         tableBebida.setModel(new javax.swing.table.DefaultTableModel(
@@ -126,6 +138,11 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableBebida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableBebidaMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tableBebida);
 
         jLabel1.setText("Platillos");
@@ -185,6 +202,36 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
     private void btnComandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComandarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnComandarActionPerformed
+
+    private void tablePlatilloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePlatilloMouseClicked
+        // TODO add your handling code here:
+        int fila = tablePlatillo.rowAtPoint(evt.getPoint());
+        int columna = tablePlatillo.columnAtPoint(evt.getPoint());
+        if ((fila > -1) && (columna > -1)) {
+            int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el platillo?");
+            if(input==0){
+                comanda.getComandaPlatillo().remove(fila);
+                DefaultTableModel temp = (DefaultTableModel) tablePlatillo.getModel();
+                temp.removeRow(fila);
+            }
+        }
+    }//GEN-LAST:event_tablePlatilloMouseClicked
+
+    private void tableBebidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableBebidaMouseClicked
+        // TODO add your handling code here:
+        int fila = tableBebida.rowAtPoint(evt.getPoint());
+        int columna = tableBebida.columnAtPoint(evt.getPoint());
+        if ((fila > -1) && (columna > -1)) {
+            int input = JOptionPane.showConfirmDialog(null, "¿Desea eliminar la Bebida?");
+            if(input==0){
+                //int cuenta = listas.bebidaList.get(indexBebida).getiPrecio() * comanda.getComandaBebida().get(size).getQuantity();
+                //comanda.setCuentaFinal(cuenta);
+                comanda.getComandaBebida().remove(fila);
+                DefaultTableModel temp = (DefaultTableModel) tableBebida.getModel();
+                temp.removeRow(fila);
+            }
+        }
+    }//GEN-LAST:event_tableBebidaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

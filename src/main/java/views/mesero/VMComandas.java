@@ -5,6 +5,7 @@
 package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
+import entities.CComanda;
 import entities.CMesero;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -22,30 +23,41 @@ public class VMComandas extends javax.swing.JInternalFrame {
     CListas listas;
     CMesero mesero;
     VMenuMesero menu;
+
     public VMComandas(CListas listas, CMesero mesero, VMenuMesero menu) {
         initComponents();
         this.listas = listas;
         this.mesero = mesero;
         this.menu = menu;
-        
+
         addRows();
         addCheckBox();
+        addCuenta();
+
     }
-    
-    private void addRows(){
+
+    private void addRows() {
         DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
         int size = mesero.getComandas().size();
         System.out.println("Estoy aqui" + size);
+        CComanda comanda;
         for (int i = 0; i < size; i++) {
-            Object nuevo[] = {mesero.getComandas().get(i).getMesaID(), mesero.getComandas().get(i).getDateInit()};
+            comanda = mesero.getComandas().get(i);
+            Object nuevo[] = {comanda.getMesaID(), comanda.getDateInit(), comanda.getCuentaFinal()};
             temp.addRow(nuevo);
         }
     }
-    
+
     private void addCheckBox() {
-        TableColumn tc = jTable1.getColumnModel().getColumn(2);
+        TableColumn tc = jTable1.getColumnModel().getColumn(3);
         tc.setCellEditor(jTable1.getDefaultEditor(Boolean.class));
         tc.setCellRenderer(jTable1.getDefaultRenderer(Boolean.class));
+    }
+
+    private void addCuenta() {
+        for (CComanda comanda : mesero.getComandas()) {
+            //comanda.get
+        }
     }
 
     private boolean IsSelected(int row, int column, JTable table) {
@@ -54,6 +66,7 @@ public class VMComandas extends javax.swing.JInternalFrame {
         }
         return false;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,9 +87,17 @@ public class VMComandas extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Mesa", "Hora Inicio", "Estado"
+                "Mesa", "Hora Inicio", "Cuenta", "Status"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         btnCloseComanda.setText("Cerrar Comanda");
@@ -111,13 +132,10 @@ public class VMComandas extends javax.swing.JInternalFrame {
     private void btnCloseComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseComandaActionPerformed
         // TODO add your handling code here:
         for (int i = 0; i < jTable1.getRowCount(); i++) {
-            //System.out.println(jTable1.getValueAt(i, 1).toString());
-            //listas.setIsStockPlatillo(i, platilloType, IsSelected(i, 1, jTable1));
-            
-            /*isSelected = IsSelected(i, 1, jTable1);
-            listas.setIsStockPlatillo(i, platilloType, isSelected);*/
-            if(isSelected()){
+            if (IsSelected(i, 3, jTable1)) {
                 int index = listas.getIndexComanda(mesero.getComandas(), (Integer) jTable1.getValueAt(i, 0));
+                DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
+                temp.removeRow(i);
                 menu.closeComanda(index);
             }
         }

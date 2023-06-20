@@ -34,7 +34,12 @@ public class CComanda {
     }
 
     public void setCuentaFinal(int CuentaFinal) {
-        this.CuentaFinal = CuentaFinal;
+        
+        this.CuentaFinal += CuentaFinal;
+    }
+    
+    public void subCuentaFinal(int CuentaFinal){
+        this.CuentaFinal -= CuentaFinal;
     }
 
     public int getMesaID() {

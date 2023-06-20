@@ -8,6 +8,9 @@ import com.mycompany.casadoloresproject.CListas;
 import entities.CComanda;
 import entities.CMesero;
 import java.awt.Image;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -20,49 +23,52 @@ public final class VMesasTerraza extends javax.swing.JInternalFrame {
     /**
      * Creates new form VMapaMesas
      */
-    
-   CListas listas;
+    CListas listas;
     CMesero mesero;
     int index;
     VMenuMesero menu;
-    
+
     public VMesasTerraza(CListas listas, int index, VMenuMesero menu) {
-      
+
         initComponents();
+        this.listas = listas;
+        mesero = listas.meseroList.get(index);
         cargarImagenMesas();
         this.index = index;
-        this.listas = listas;
         this.menu = menu;
+
+        enableTables();
     }
-    public void cargarImagenMesas(){
-        
+
+    public void cargarImagenMesas() {
+
         ImageIcon imagenSubtraction1 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen1 = imagenSubtraction1.getImage();
-        Image imagenEscalada1 = imagen1.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
+        Image imagenEscalada1 = imagen1.getScaledInstance(134, 134, java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction1 = new ImageIcon(imagenEscalada1);
         btnMesa8.setIcon(imagenSubtraction1);
-        
+
         ImageIcon imagenSubtraction2 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen2 = imagenSubtraction2.getImage();
-        Image imagenEscalada2 = imagen2.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
+        Image imagenEscalada2 = imagen2.getScaledInstance(134, 134, java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction2 = new ImageIcon(imagenEscalada2);
         btnMesa9.setIcon(imagenSubtraction2);
-        
+
         ImageIcon imagenSubtraction3 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen3 = imagenSubtraction3.getImage();
-        Image imagenEscalada3 = imagen3.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
+        Image imagenEscalada3 = imagen3.getScaledInstance(134, 134, java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction3 = new ImageIcon(imagenEscalada3);
         btnMesa10.setIcon(imagenSubtraction3);
-        
+
         ImageIcon imagenSubtraction4 = new ImageIcon("src/main/java/img/desk.png");
         Image imagen4 = imagenSubtraction4.getImage();
-        Image imagenEscalada4 = imagen4.getScaledInstance(134, 134,java.awt.Image.SCALE_SMOOTH);
+        Image imagenEscalada4 = imagen4.getScaledInstance(134, 134, java.awt.Image.SCALE_SMOOTH);
         imagenSubtraction4 = new ImageIcon(imagenEscalada4);
         btnMesa11.setIcon(imagenSubtraction4);
-        
+
     }
-    
-private void enableTables() {
+
+    private void enableTables() {
         for (CMesero meseroLocal : listas.meseroList) {
             if (meseroLocal.getiID() != mesero.getiID()) {
                 for (CComanda comanda : meseroLocal.getComandas()) {
@@ -159,6 +165,11 @@ private void enableTables() {
         btnMesa10.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa10.setBorderPainted(false);
         btnMesa10.setContentAreaFilled(false);
+        btnMesa10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa10ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 126, 95));
 
         btnMesa11.setBackground(new java.awt.Color(204, 204, 204));
@@ -190,17 +201,34 @@ private void enableTables() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMesa8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa8ActionPerformed
-        JOptionPane.showMessageDialog(null, "Hola Rangel");
+        createComanda(8);
     }//GEN-LAST:event_btnMesa8ActionPerformed
 
     private void btnMesa11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa11ActionPerformed
         // TODO add your handling code here:
+        createComanda(11);
     }//GEN-LAST:event_btnMesa11ActionPerformed
 
     private void btnMesa9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa9ActionPerformed
         // TODO add your handling code here:
+        createComanda(9);
     }//GEN-LAST:event_btnMesa9ActionPerformed
 
+    private void btnMesa10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa10ActionPerformed
+        // TODO add your handling code here:
+        createComanda(10);
+    }//GEN-LAST:event_btnMesa10ActionPerformed
+    
+    private void createComanda(int mesaID) {
+        boolean isActive = listas.isTableActive(mesero, mesaID);
+        if (!isActive) {
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            Date date = new Date();
+            mesero.setComanda(new CComanda(dateFormat.format(date), mesaID));
+        }
+        new VMenuCreateComanda(listas, index, mesaID).setVisible(true);
+        menu.dispose();
+    }
     /**
      * @param args the command line arguments
      */

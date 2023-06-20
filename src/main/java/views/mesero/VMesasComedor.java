@@ -9,6 +9,9 @@ import entities.CComanda;
 import entities.CMesero;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -181,11 +184,21 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
         btnMesa6.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa6.setBorderPainted(false);
         btnMesa6.setContentAreaFilled(false);
+        btnMesa6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa6ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 126, 95));
 
         btnMesa7.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa7.setBorderPainted(false);
         btnMesa7.setContentAreaFilled(false);
+        btnMesa7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 126, 95));
 
         lbMesa10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -195,16 +208,31 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
         btnMesa2.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa2.setBorderPainted(false);
         btnMesa2.setContentAreaFilled(false);
+        btnMesa2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 126, 95));
 
         btnMesa5.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa5.setBorderPainted(false);
         btnMesa5.setContentAreaFilled(false);
+        btnMesa5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 126, 95));
 
         btnMesa3.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa3.setBorderPainted(false);
         btnMesa3.setContentAreaFilled(false);
+        btnMesa3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMesa3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMesa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 126, 95));
 
         lbMesa8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -248,18 +276,49 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMesa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa1ActionPerformed
-        boolean isActive = listas.isTableActive(mesero, 1);
-        if (!isActive) {
-            mesero.setComanda(new CComanda("11:23", 1));
-        }
-        new VMenuCreateComanda(listas, index, 1).setVisible(true);
-        menu.dispose();
+        createComanda(1);
     }//GEN-LAST:event_btnMesa1ActionPerformed
 
     private void btnMesa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa4ActionPerformed
         // TODO add your handling code here:
+        createComanda(4);
     }//GEN-LAST:event_btnMesa4ActionPerformed
 
+    private void btnMesa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa2ActionPerformed
+        // TODO add your handling code here:
+        createComanda(2);
+    }//GEN-LAST:event_btnMesa2ActionPerformed
+
+    private void btnMesa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa3ActionPerformed
+        // TODO add your handling code here:
+        createComanda(3);
+    }//GEN-LAST:event_btnMesa3ActionPerformed
+
+    private void btnMesa5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa5ActionPerformed
+        // TODO add your handling code here:
+        createComanda(5);
+    }//GEN-LAST:event_btnMesa5ActionPerformed
+
+    private void btnMesa6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa6ActionPerformed
+        // TODO add your handling code here:
+        createComanda(6);
+    }//GEN-LAST:event_btnMesa6ActionPerformed
+
+    private void btnMesa7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesa7ActionPerformed
+        // TODO add your handling code here:
+        createComanda(7);
+    }//GEN-LAST:event_btnMesa7ActionPerformed
+
+    private void createComanda(int mesaID) {
+        boolean isActive = listas.isTableActive(mesero, mesaID);
+        if (!isActive) {
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            Date date = new Date();
+            mesero.setComanda(new CComanda(dateFormat.format(date), mesaID));
+        }
+        new VMenuCreateComanda(listas, index, mesaID).setVisible(true);
+        menu.dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMesa1;

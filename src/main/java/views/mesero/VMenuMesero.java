@@ -198,6 +198,7 @@ public class VMenuMesero extends javax.swing.JFrame {
 
     public void closeComanda(int indexComanda){
         mesero.getComandas().remove(indexComanda);
+        System.out.println(indexComanda);
     }
     
     private void cargarEtiquetas() {
