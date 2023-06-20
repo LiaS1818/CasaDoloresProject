@@ -228,9 +228,10 @@ public class VLogin extends javax.swing.JFrame {
             }
             default: {
                 JOptionPane.showMessageDialog(this, "No se encontró al usuario", "Inicio de Sesión", 1);
+ 
             }
         }
-        this.dispose();
+        //this.dispose();
 
 
     }//GEN-LAST:event_btnEntrarActionPerformed

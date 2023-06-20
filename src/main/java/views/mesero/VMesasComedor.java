@@ -156,6 +156,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
         lbMesa6 = new javax.swing.JLabel();
         btnMesa4 = new javax.swing.JButton();
         lbMesa9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -179,7 +180,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 126, 95));
+        jPanel1.add(btnMesa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 126, 95));
 
         btnMesa6.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa6.setBorderPainted(false);
@@ -199,11 +200,11 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa7ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 126, 95));
+        jPanel1.add(btnMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 390, 126, 95));
 
         lbMesa10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa10.setText("4");
-        jPanel1.add(lbMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 10, -1));
+        jPanel1.add(lbMesa10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, 10, -1));
 
         btnMesa2.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa2.setBorderPainted(false);
@@ -213,7 +214,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa2ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 126, 95));
+        jPanel1.add(btnMesa2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 126, 95));
 
         btnMesa5.setBackground(new java.awt.Color(204, 204, 204));
         btnMesa5.setBorderPainted(false);
@@ -241,7 +242,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
 
         lbMesa7.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa7.setText("7");
-        jPanel1.add(lbMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 10, -1));
+        jPanel1.add(lbMesa7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 10, -1));
 
         lbMesa6.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa6.setText("6");
@@ -255,11 +256,15 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
                 btnMesa4ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 126, 95));
+        jPanel1.add(btnMesa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 126, 95));
 
         lbMesa9.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbMesa9.setText("2");
-        jPanel1.add(lbMesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 10, -1));
+        jPanel1.add(lbMesa9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 150, 10, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        jLabel1.setText("Comedor");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 200, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -328,6 +333,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnMesa5;
     private javax.swing.JButton btnMesa6;
     private javax.swing.JButton btnMesa7;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbMesa10;
     private javax.swing.JLabel lbMesa11;

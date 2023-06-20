@@ -90,7 +90,6 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         tableBebida = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnComandar = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,8 +104,11 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        setBackground(new java.awt.Color(153, 51, 0));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        tablePlatillo.setBackground(new java.awt.Color(102, 102, 102));
+        tablePlatillo.setForeground(new java.awt.Color(255, 255, 255));
         tablePlatillo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -130,6 +132,8 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tablePlatillo);
 
+        tableBebida.setBackground(new java.awt.Color(255, 255, 255));
+        tableBebida.setForeground(new java.awt.Color(102, 102, 102));
         tableBebida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -145,16 +149,13 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tableBebida);
 
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setText("Platillos");
 
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Bebidas");
-
-        btnComandar.setText("Comandar");
-        btnComandar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComandarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,7 +163,6 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -172,36 +172,30 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
                                 .addGap(161, 161, 161)
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
+                                .addGap(158, 158, 158)
                                 .addComponent(jLabel2))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(148, 148, 148)
-                                .addComponent(btnComandar)))
-                        .addGap(0, 147, Short.MAX_VALUE)))
+                                .addGap(14, 14, 14)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 11, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(btnComandar)
-                .addGap(24, 24, 24))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnComandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComandarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnComandarActionPerformed
 
     private void tablePlatilloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePlatilloMouseClicked
         // TODO add your handling code here:
@@ -235,7 +229,6 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnComandar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
