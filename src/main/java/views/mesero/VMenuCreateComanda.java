@@ -24,54 +24,78 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
     int index;
     CMesero mesero;
     CComanda comanda;
-    String selection = "";
+    String selection = "platillo";
     int mesaID;
+
+    int correctorErrorComboBox = 0;
 
     VMComandaPlatillo cmdPEntrada;
     VMComandaPlatillo cmdPPrincipal;
     VMComandaPlatillo cmdPPostre;
     VMComandaPlatillo cmdPExtras;
-    
-    VMReviewComanda rwComanda;
 
-    public VMenuCreateComanda(CListas listas, int index, int mesaID) {
+    VMComandaBebida cmdBTequila;
+    VMComandaBebida cmdBNatural;
+    VMComandaBebida cmdBRefresco;
+    VMComandaBebida cmdBCafeteria;
+
+    VMReviewComanda rwComanda;
+    
+    VMenuMesero menu;
+
+    public VMenuCreateComanda(CListas listas, int index, int mesaID, VMenuMesero menu) {
         initComponents();
         this.listas = listas;
         this.index = index;
         this.mesaID = mesaID;
         mesero = listas.meseroList.get(index);
-        for(CComanda comandaLocal : mesero.getComandas()){
-            if(comandaLocal.getMesaID() == mesaID){
+        for (CComanda comandaLocal : mesero.getComandas()) {
+            if (comandaLocal.getMesaID() == mesaID) {
                 this.comanda = comandaLocal;
             }
         }
-
-        cbCategoria.setVisible(false);
-        cbCategoria.setEnabled(false);
+        
+        this.menu = menu;
 
         cmdPEntrada = new VMComandaPlatillo(listas, index, "Entrada", this);
         cmdPPrincipal = new VMComandaPlatillo(listas, index, "Principal", this);
         cmdPPostre = new VMComandaPlatillo(listas, index, "Postre", this);
         cmdPExtras = new VMComandaPlatillo(listas, index, "Extras", this);
 
+        cmdBTequila = new VMComandaBebida(listas, index, "Tequila", this);
+        cmdBNatural = new VMComandaBebida(listas, index, "Natural", this);
+        cmdBRefresco = new VMComandaBebida(listas, index, "Refresco", this);
+        cmdBCafeteria = new VMComandaBebida(listas, index, "Cafeteria", this);
+
         //comanda = listas.getComandaMesa(mesaID);
-        
         rwComanda = new VMReviewComanda(listas, mesero, comanda);
-        
-        deskPaneComanda.add(cmdPEntrada);
+
+        deskPaneComanda.add(cmdBTequila);
         deskPaneComanda.add(cmdPPrincipal);
         deskPaneComanda.add(cmdPPostre);
         deskPaneComanda.add(cmdPExtras);
-        
+
+        deskPaneComanda.add(cmdPEntrada);
+        deskPaneComanda.add(cmdBNatural);
+        deskPaneComanda.add(cmdBRefresco);
+        deskPaneComanda.add(cmdBCafeteria);
+
         deskPaneReview.add(rwComanda);
         rwComanda.setVisible(true);
     }
 
-    public void putPlatilloComanda(int platilloIndex){
+    public void putPlatilloComanda(int platilloIndex) {
         System.out.println(listas.platilloList.get(platilloIndex).getsNombre());
         String numPlatillos = JOptionPane.showInputDialog("Ingresa Numero de platillos");
-        
+
         rwComanda.putPlatillo(platilloIndex, Integer.parseInt(numPlatillos));
+    }
+
+    public void putBebidaComanda(int platilloIndex) {
+        System.out.println(listas.platilloList.get(platilloIndex).getsNombre());
+        String numPlatillos = JOptionPane.showInputDialog("Ingresa Numero de platillos");
+
+        rwComanda.putBebida(platilloIndex, Integer.parseInt(numPlatillos));
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -83,6 +107,7 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         cbCategoria = new javax.swing.JComboBox<>();
         deskPaneComanda = new javax.swing.JDesktopPane();
         deskPaneReview = new javax.swing.JDesktopPane();
+        btnTerminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,9 +129,24 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         });
 
         cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Principal", "Postre", "Extras" }));
+        cbCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbCategoriaItemStateChanged(evt);
+            }
+        });
+        cbCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbCategoriaMouseClicked(evt);
+            }
+        });
         cbCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCategoriaActionPerformed(evt);
+            }
+        });
+        cbCategoria.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cbCategoriaPropertyChange(evt);
             }
         });
 
@@ -118,19 +158,26 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         );
         deskPaneComandaLayout.setVerticalGroup(
             deskPaneComandaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGap(0, 172, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout deskPaneReviewLayout = new javax.swing.GroupLayout(deskPaneReview);
         deskPaneReview.setLayout(deskPaneReviewLayout);
         deskPaneReviewLayout.setHorizontalGroup(
             deskPaneReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGap(0, 456, Short.MAX_VALUE)
         );
         deskPaneReviewLayout.setVerticalGroup(
             deskPaneReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 457, Short.MAX_VALUE)
         );
+
+        btnTerminar.setText("Terminar");
+        btnTerminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTerminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,25 +194,33 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(deskPaneComanda, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, 361, Short.MAX_VALUE)))
+                        .addComponent(cbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, 361, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(btnTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deskPaneReview))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPlatillo, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBebida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deskPaneComanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deskPaneReview, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPlatillo, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBebida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deskPaneComanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(deskPaneReview)
         );
 
         pack();
@@ -173,59 +228,103 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
 
     private void btnBebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBebidaActionPerformed
         // TODO add your handling code here:
+        correctorErrorComboBox = 0;
 
         cbCategoria.removeAllItems();
+        correctorErrorComboBox = 1;
         cbCategoria.addItem("Tequila");
         cbCategoria.addItem("Natural");
         cbCategoria.addItem("Refresco");
         cbCategoria.addItem("Cafeteria");
-        cbCategoria.setVisible(true);
-        cbCategoria.setEnabled(true);
         selection = "bebida";
     }//GEN-LAST:event_btnBebidaActionPerformed
 
     private void btnPlatilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlatilloActionPerformed
         // TODO add your handling code here:
-
+        correctorErrorComboBox = 0;
         cbCategoria.removeAllItems();
+        correctorErrorComboBox = 1;
         cbCategoria.addItem("Entrada");
         cbCategoria.addItem("Principal");
         cbCategoria.addItem("Postre");
         cbCategoria.addItem("Extras");
-        cbCategoria.setVisible(true);
-        cbCategoria.setEnabled(true);
         selection = "platillo";
     }//GEN-LAST:event_btnPlatilloActionPerformed
 
     private void cbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriaActionPerformed
         // TODO add your handling code here:
-        String option = "";
-        option = (String) cbCategoria.getSelectedItem();
-        if (selection.equals("platillo")) {
-            switch (option) {
-                case "Entrada": {
-                    setVisibleViews(true, false, false, false, false, false, false, false);
-                    break;
+        if (correctorErrorComboBox == 1) {
+            System.out.println(cbCategoria.getSelectedItem());
+            System.out.println("************************************************");
+            String option = "";
+            option = (String) cbCategoria.getSelectedItem();
+            System.out.println(option);
+            System.out.println(selection);
+            if (selection.equals("platillo")) {
+                switch (option) {
+                    case "Entrada": {
+                        setVisibleViews(true, false, false, false, false, false, false, false);
+                        break;
+                    }
+                    case "Principal": {
+                        System.out.println("Comida Rica");
+                        setVisibleViews(false, true, false, false, false, false, false, false);
+                        break;
+                    }
+                    case "Postre": {
+                        setVisibleViews(false, false, true, false, false, false, false, false);
+                        break;
+                    }
+                    case "Extras": {
+                        setVisibleViews(false, false, false, true, false, false, false, false);
+                        break;
+                    }
                 }
-                case "Principal": {
-                    System.out.println("Comida Rica");
-                    setVisibleViews(false, true, false, false, false, false, false, false);
-                    break;
-                }
-                case "Postre": {
-                    setVisibleViews(false, false, true, false, false, false, false, false);
-                    break;
-                }
-                case "Extras": {
-                    setVisibleViews(false, false, false, true, false, false, false, false);
-                    break;
+            }
+            if (selection.equals("bebida")) {
+                System.out.println("Estoy aquí al 100");
+                switch (option) {
+                    case "Tequila": {
+                        setVisibleViews(false, false, false, false, true, false, false, false);
+                        break;
+                    }
+                    case "Natural": {
+                        System.out.println("Comida Rica");
+                        setVisibleViews(false, false, false, false, false, true, false, false);
+                        break;
+                    }
+                    case "Refresco": {
+                        setVisibleViews(false, false, false, false, false, false, true, false);
+                        break;
+                    }
+                    case "Cafeteria": {
+                        setVisibleViews(false, false, false, false, false, false, false, true);
+                        break;
+                    }
                 }
             }
         }
-        if (selection.equals("bebida")) {
 
-        }
     }//GEN-LAST:event_cbCategoriaActionPerformed
+
+    private void cbCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbCategoriaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCategoriaMouseClicked
+
+    private void cbCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbCategoriaItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCategoriaItemStateChanged
+
+    private void cbCategoriaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cbCategoriaPropertyChange
+        // TODO add your handling code here:
+        /**/
+    }//GEN-LAST:event_cbCategoriaPropertyChange
+
+    private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
+        // TODO add your handling code here:
+        new VMenuMesero(listas, index).setVisible(true);
+        menu.dispose();
+    }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void setVisibleViews(
             boolean b1,
@@ -248,21 +347,22 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         cmdPExtras.setVisible(b4);
         cmdPExtras.setEnabled(b4);
 
-        /*cmdPEntrada.setVisible(b5);
-        cmdPEntrada.setEnabled(b5);
+        cmdBTequila.setVisible(b5);
+        cmdBTequila.setEnabled(b5);
 
-        cmdPEntrada.setVisible(b6);
-        cmdPEntrada.setEnabled(b6);
+        cmdBNatural.setVisible(b6);
+        cmdBNatural.setEnabled(b6);
 
-        cmdPEntrada.setVisible(b7);
-        cmdPEntrada.setEnabled(b7);
+        cmdBRefresco.setVisible(b7);
+        cmdBRefresco.setEnabled(b7);
 
-        cmdPEntrada.setVisible(b8);
-        cmdPEntrada.setEnabled(b8);*/
+        cmdBCafeteria.setVisible(b8);
+        cmdBCafeteria.setEnabled(b8);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBebida;
     private javax.swing.JButton btnPlatillo;
+    private javax.swing.JButton btnTerminar;
     private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JDesktopPane deskPaneComanda;
     private javax.swing.JDesktopPane deskPaneReview;

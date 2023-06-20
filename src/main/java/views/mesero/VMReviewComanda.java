@@ -6,6 +6,7 @@ package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
 import entities.CComanda;
+import entities.CComandaBebida;
 import entities.CComandaPlatillo;
 import entities.CMesero;
 import javax.swing.table.DefaultTableModel;
@@ -19,22 +20,44 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
     /**
      * Creates new form VMReviewComanda
      */
-    
     CListas listas;
     int index;
     CComanda comanda;
-    
+
     public VMReviewComanda(CListas listas, CMesero mesero, CComanda comanda) {
         initComponents();
         this.listas = listas;
         this.index = listas.getComandaIndex(mesero, comanda.getMesaID());
         this.comanda = comanda;
     }
-    
-    public void putPlatillo(int indexPlatillo, int numPlatillos){
-        DefaultTableModel temp = (DefaultTableModel) jTable1.getModel();
-        comanda.setComandaPlatillo(new CComandaPlatillo(listas.platilloList.get(indexPlatillo),numPlatillos));
+
+    private void fillTable() {
+        DefaultTableModel temp = (DefaultTableModel) tablePlatillo.getModel();
+        int size = comanda.getComandaPlatillo().size();
+
+        for (int i = 0; i < size; i++) {
+            Object nuevo[] = {comanda.getComandaPlatillo().get(i).getPlatillo().getsNombre(), comanda.getComandaPlatillo().get(i).getQuantity()};
+            temp.addRow(nuevo);
+        }
+
+        DefaultTableModel temp1 = (DefaultTableModel) tableBebida.getModel();
+        for (int i = 0; i < size; i++) {
+            Object nuevo[] = {comanda.getComandaBebida().get(i).getBebida().getsNombre(), comanda.getComandaBebida().get(i).getQuantity()};
+            temp.addRow(nuevo);
+        }
+    }
+
+    public void putPlatillo(int indexPlatillo, int numPlatillos) {
+        DefaultTableModel temp = (DefaultTableModel) tablePlatillo.getModel();
+        comanda.setComandaPlatillo(new CComandaPlatillo(listas.platilloList.get(indexPlatillo), numPlatillos));
         Object nuevo[] = {comanda.getComandaPlatillo().get(index).getPlatillo().getsNombre(), comanda.getComandaPlatillo().get(index).getQuantity()};
+        temp.addRow(nuevo);
+    }
+
+    public void putBebida(int indexBebida, int numPlatillos) {
+        DefaultTableModel temp = (DefaultTableModel) tableBebida.getModel();
+        comanda.setComandaBebida(new CComandaBebida(listas.bebidaList.get(indexBebida), numPlatillos));
+        Object nuevo[] = {comanda.getComandaBebida().get(index).getBebida().getsNombre(), comanda.getComandaBebida().get(index).getQuantity()};
         temp.addRow(nuevo);
     }
 
@@ -50,9 +73,9 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablePlatillo = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tableBebida = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnComandar = new javax.swing.JButton();
@@ -72,7 +95,7 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablePlatillo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -88,9 +111,9 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablePlatillo);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tableBebida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,7 +121,7 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tableBebida);
 
         jLabel1.setText("Platillos");
 
@@ -166,8 +189,8 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable tableBebida;
+    private javax.swing.JTable tablePlatillo;
     // End of variables declaration//GEN-END:variables
 }

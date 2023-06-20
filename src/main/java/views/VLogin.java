@@ -219,7 +219,6 @@ public class VLogin extends javax.swing.JFrame {
             case "3": {
                 index = listas.BuscarIdMesero(Integer.parseInt(username));
                 new VMenuMesero(listas, index).setVisible(true);
-                System.out.println("entro");
             break;
             }
             case "4": {

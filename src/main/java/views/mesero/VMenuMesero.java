@@ -10,20 +10,25 @@ public class VMenuMesero extends javax.swing.JFrame {
     CMesero mesero;
     VMesasComedor interMesasComedor;
     VMesasTerraza interMesasTerraza;
+    VMComandas interComandas;
     int index;
 
     public VMenuMesero(CListas listas, int index) {
         initComponents();
+        
+        this.listas = listas;
+        this.mesero = listas.meseroList.get(index);
+        this.index = index;
 
         interMesasComedor = new VMesasComedor(listas, index, this);
         deskPaneMesero.add(interMesasComedor);
 
         interMesasTerraza = new VMesasTerraza(listas, index, this);
         deskPaneMesero.add(interMesasTerraza);
-
-        this.listas = listas;
-        this.mesero = listas.meseroList.get(index);
-        this.index = index;
+        
+        interComandas = new VMComandas(listas, mesero);
+        deskPaneMesero.add(interComandas);
+        
         cargarEtiquetas();
 
         setVisibleView(true, false, false);
@@ -70,6 +75,11 @@ public class VMenuMesero extends javax.swing.JFrame {
         });
 
         btnComandas.setText("Comandas");
+        btnComandas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComandasActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +190,12 @@ public class VMenuMesero extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnComandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComandasActionPerformed
+        // TODO add your handling code here:
+        setVisibleView(false, false, true);
+        
+    }//GEN-LAST:event_btnComandasActionPerformed
+
     private void cargarEtiquetas() {
         labelNombre.setText(mesero.getsUsername());
         labelID.setText(String.valueOf(mesero.getiID()));
@@ -191,6 +207,9 @@ public class VMenuMesero extends javax.swing.JFrame {
         
         interMesasTerraza.setVisible(b2);
         interMesasTerraza.setEnabled(b2);
+        
+        interComandas.setVisible(b3);
+        interComandas.setEnabled(b3);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
