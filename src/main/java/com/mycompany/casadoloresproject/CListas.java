@@ -282,4 +282,15 @@ public class CListas {
         }
         return false;
     }
+    
+    public int getIndexComanda(ArrayList<CComanda> comanda, int mesaID){
+        int i = 0;
+        for(CComanda comandaLocal : comanda){
+            if(comandaLocal.getMesaID() == mesaID){
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
 }

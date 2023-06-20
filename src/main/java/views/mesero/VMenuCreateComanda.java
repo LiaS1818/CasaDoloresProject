@@ -41,9 +41,7 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
 
     VMReviewComanda rwComanda;
     
-    VMenuMesero menu;
-
-    public VMenuCreateComanda(CListas listas, int index, int mesaID, VMenuMesero menu) {
+    public VMenuCreateComanda(CListas listas, int index, int mesaID) {
         initComponents();
         this.listas = listas;
         this.index = index;
@@ -58,8 +56,6 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
         cbCategoria.setVisible(false);
         cbCategoria.setEnabled(false);
         
-        this.menu = menu;
-
         cmdPEntrada = new VMComandaPlatillo(listas, index, "Entrada", this);
         cmdPPrincipal = new VMComandaPlatillo(listas, index, "Principal", this);
         cmdPPostre = new VMComandaPlatillo(listas, index, "Postre", this);
@@ -332,7 +328,7 @@ public class VMenuCreateComanda extends javax.swing.JFrame {
     private void btnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminarActionPerformed
         // TODO add your handling code here:
         new VMenuMesero(listas, index).setVisible(true);
-        menu.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnTerminarActionPerformed
 
     private void setVisibleViews(

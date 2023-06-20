@@ -46,21 +46,23 @@ public class VMReviewComanda extends javax.swing.JInternalFrame {
         DefaultTableModel temp1 = (DefaultTableModel) tableBebida.getModel();
         for (int i = 0; i < size1; i++) {
             Object nuevo[] = {comanda.getComandaBebida().get(i).getBebida().getsNombre(), comanda.getComandaBebida().get(i).getQuantity()};
-            temp.addRow(nuevo);
+            temp1.addRow(nuevo);
         }
     }
 
     public void putPlatillo(int indexPlatillo, int numPlatillos) {
         DefaultTableModel temp = (DefaultTableModel) tablePlatillo.getModel();
         comanda.setComandaPlatillo(new CComandaPlatillo(listas.platilloList.get(indexPlatillo), numPlatillos));
-        Object nuevo[] = {comanda.getComandaPlatillo().get(index).getPlatillo().getsNombre(), comanda.getComandaPlatillo().get(index).getQuantity()};
+        int size = comanda.getComandaPlatillo().size() - 1;
+        Object nuevo[] = {comanda.getComandaPlatillo().get(size).getPlatillo().getsNombre(), comanda.getComandaPlatillo().get(size).getQuantity()};
         temp.addRow(nuevo);
     }
 
     public void putBebida(int indexBebida, int numPlatillos) {
         DefaultTableModel temp = (DefaultTableModel) tableBebida.getModel();
         comanda.setComandaBebida(new CComandaBebida(listas.bebidaList.get(indexBebida), numPlatillos));
-        Object nuevo[] = {comanda.getComandaBebida().get(index).getBebida().getsNombre(), comanda.getComandaBebida().get(index).getQuantity()};
+        int size = comanda.getComandaBebida().size() - 1;
+        Object nuevo[] = {comanda.getComandaBebida().get(size).getBebida().getsNombre(), comanda.getComandaBebida().get(size).getQuantity()};
         temp.addRow(nuevo);
     }
 

@@ -26,7 +26,7 @@ public class VMenuMesero extends javax.swing.JFrame {
         interMesasTerraza = new VMesasTerraza(listas, index, this);
         deskPaneMesero.add(interMesasTerraza);
         
-        interComandas = new VMComandas(listas, mesero);
+        interComandas = new VMComandas(listas, mesero, this);
         deskPaneMesero.add(interComandas);
         
         cargarEtiquetas();
@@ -196,6 +196,10 @@ public class VMenuMesero extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnComandasActionPerformed
 
+    public void closeComanda(int indexComanda){
+        mesero.getComandas().remove(indexComanda);
+    }
+    
     private void cargarEtiquetas() {
         labelNombre.setText(mesero.getsUsername());
         labelID.setText(String.valueOf(mesero.getiID()));

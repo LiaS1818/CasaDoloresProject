@@ -252,7 +252,7 @@ public class VMesasComedor extends javax.swing.JInternalFrame {
         if (!isActive) {
             mesero.setComanda(new CComanda("11:23", 1));
         }
-        new VMenuCreateComanda(listas, index, 1, menu).setVisible(true);
+        new VMenuCreateComanda(listas, index, 1).setVisible(true);
         menu.dispose();
     }//GEN-LAST:event_btnMesa1ActionPerformed
 
