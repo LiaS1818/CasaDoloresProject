@@ -46,7 +46,6 @@ public class VCreateUser extends javax.swing.JInternalFrame {
         rbMesero = new javax.swing.JRadioButton();
         rbBarMan = new javax.swing.JRadioButton();
         rbCocinero = new javax.swing.JRadioButton();
-        btnCancelar = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -85,15 +84,6 @@ public class VCreateUser extends javax.swing.JInternalFrame {
         rbCocinero.setText("Cocinero");
         jPanel1.add(rbCocinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        btnCancelar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 102, -1));
-
         btnCrear.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +91,7 @@ public class VCreateUser extends javax.swing.JInternalFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 102, -1));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 102, -1));
 
         jLabel1.setText("Nuevo Usuario");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
@@ -140,11 +130,6 @@ public class VCreateUser extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        new vMenuAdministrador(listas).setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
     public void clearForm() {
         tfName.setText("");
         rbAdministrador.setSelected(true);
@@ -155,7 +140,6 @@ public class VCreateUser extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCrear;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;

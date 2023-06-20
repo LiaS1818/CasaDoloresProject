@@ -6,7 +6,9 @@ package views.mesero;
 
 import com.mycompany.casadoloresproject.CListas;
 import entities.CMesero;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -19,13 +21,15 @@ public class VMComandas extends javax.swing.JInternalFrame {
      */
     CListas listas;
     CMesero mesero;
-    
-    public VMComandas(CListas listas, CMesero mesero) {
+    VMenuMesero menu;
+    public VMComandas(CListas listas, CMesero mesero, VMenuMesero menu) {
         initComponents();
         this.listas = listas;
         this.mesero = mesero;
+        this.menu = menu;
         
         addRows();
+        addCheckBox();
     }
     
     private void addRows(){
@@ -38,10 +42,18 @@ public class VMComandas extends javax.swing.JInternalFrame {
         }
     }
     
-    public void addComanda(){
-        
+    private void addCheckBox() {
+        TableColumn tc = jTable1.getColumnModel().getColumn(2);
+        tc.setCellEditor(jTable1.getDefaultEditor(Boolean.class));
+        tc.setCellRenderer(jTable1.getDefaultRenderer(Boolean.class));
     }
 
+    private boolean IsSelected(int row, int column, JTable table) {
+        if (table.getValueAt(row, column) != null) {
+            return table.getValueAt(row, column).toString() == "true";
+        }
+        return false;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,8 +65,9 @@ public class VMComandas extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnCloseComanda = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,24 +79,53 @@ public class VMComandas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        btnCloseComanda.setText("Cerrar Comanda");
+        btnCloseComanda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseComandaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(btnCloseComanda)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(btnCloseComanda)
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCloseComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseComandaActionPerformed
+        // TODO add your handling code here:
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            //System.out.println(jTable1.getValueAt(i, 1).toString());
+            //listas.setIsStockPlatillo(i, platilloType, IsSelected(i, 1, jTable1));
+            
+            /*isSelected = IsSelected(i, 1, jTable1);
+            listas.setIsStockPlatillo(i, platilloType, isSelected);*/
+            if(isSelected()){
+                int index = listas.getIndexComanda(mesero.getComandas(), (Integer) jTable1.getValueAt(i, 0));
+                menu.closeComanda(index);
+            }
+        }
+    }//GEN-LAST:event_btnCloseComandaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCloseComanda;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
