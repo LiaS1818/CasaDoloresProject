@@ -149,10 +149,10 @@ public class VMenuMesero extends javax.swing.JFrame {
         );
         deskPaneMeseroLayout.setVerticalGroup(
             deskPaneMeseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
 
-        jPanel1.add(deskPaneMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 910, 570));
+        jPanel1.add(deskPaneMesero, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 910, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
